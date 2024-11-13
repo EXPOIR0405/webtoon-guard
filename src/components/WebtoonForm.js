@@ -18,6 +18,10 @@ export default function WebtoonForm() {
   const [episodePrice, setEpisodePrice] = useState('');
   const [damageAmount, setDamageAmount] = useState(null);
   const [purpose, setPurpose] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [showManualInput, setShowManualInput] = useState(false);
+
 
   // 용도 선택 옵션
   const purposeOptions = [
@@ -233,7 +237,7 @@ export default function WebtoonForm() {
             value={totalRecommendations}
             onChange={(e) => setTotalRecommendations(e.target.value)}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black"
-            placeholder="정확한 조회수를 모를경우 총 추천수를 입력해주세요"
+            placeholder="정확한 조회수를 모를 경우 총 추천수를 입력해주세요"
           />
           <p className="text-sm text-gray-500 mt-1">
             * 추천수는 최소 조회수를 추정하기 위한 참고 지표로 활용됩니다
