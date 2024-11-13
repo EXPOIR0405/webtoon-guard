@@ -4,15 +4,17 @@ import Image from 'next/image';
 
 // 타이핑 효과를 위한 커스텀 훅
 function useTypingEffect(text, speed = 30) {
-  const [displayedText, setDisplayedText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
+  const [displayedText, setDisplayedText] = useState(text);
+  const [isTyping, setIsTyping] = useState(false);
 
   useEffect(() => {
     let i = 0;
     setIsTyping(true);
+    setDisplayedText('');
+    
     const timer = setInterval(() => {
       if (i < text.length) {
-        setDisplayedText(prev => prev + text.charAt(i));
+        setDisplayedText(text.substring(0, i + 1));
         i++;
       } else {
         setIsTyping(false);
