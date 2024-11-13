@@ -1,5 +1,6 @@
 // src/app/page.js
 import WebtoonForm from '../components/WebtoonForm';
+import ChatBot from '@/components/ChatBot';
 
 export default function Home() {
   return (
@@ -88,6 +89,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
     </div>
   );
 }

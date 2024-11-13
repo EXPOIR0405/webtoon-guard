@@ -1,0 +1,339 @@
+{
+    "metadata": {
+      "version": "1.0",
+      "last_updated": "2024-03-19",
+      "total_qa_pairs": 105,
+      "categories": [
+        "초기 대응", "피해 산정", "신고 절차", "법적 대응", "저작권 등록",
+        "분쟁 해결", "디지털 보호", "해외 침해", "2차 저작물", "특수 상황",
+        "팬아트/팬번역", "수익성 보호", "계약 관련", "SNS 무단 도용", "긴급 상황"
+      ]
+    },
+    "qa_data": [
+      {
+        "id": "QA001",
+        "category": "초기 대응",
+        "question": "불법 복제 발견 직후 해야 할 일은 무엇인가요?",
+        "answer": {
+          "summary": "증거 수집과 공식 신고 절차 진행이 가장 중요합니다.",
+          "steps": [
+            "1. 화면 캡처 및 URL 보존",
+            "2. 한국저작권보호원에 신고",
+            "3. 플랫폼사에 상황 보고"
+          ],
+          "legal_basis": "저작권법 제103조",
+          "caution": "불법 사이트 운영자와 직접 접촉은 피해야 합니다.",
+          "additional_info": "증거 수집 시 반드시 날짜와 시간이 표시되도록 합니다."
+        },
+        "priority": "high",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA002",
+        "category": "피해 산정",
+        "question": "조회수 기반 피해액 계산 방법은?",
+        "answer": {
+          "summary": "정상 구매가격과 불법 조회수를 기준으로 계산합니다.",
+          "calculation": {
+            "formula": "피해액 = 총 조회수 × 정상 구매가격 × 예상 구매 전환율",
+            "example": "100,000회 × 100원 × 0.3 = 3,000,000원"
+          },
+          "factors": [
+            "총 불법 조회수",
+            "정상 구매시 가격",
+            "예상 구매 전환율"
+          ],
+          "legal_basis": "저작권법 제125조",
+          "reference": "법원 판례 기준 일반적 전환율: 30%"
+        },
+        "priority": "high",
+        "response_type": "calculation"
+      },
+      {
+        "id": "QA003",
+        "category": "신고 절차",
+        "question": "저작권보호원 신고 절차가 어떻게 되나요?",
+        "answer": {
+          "summary": "온라인 신고 시스템을 통한 단계별 신고 절차",
+          "steps": [
+            "1. copy112.or.kr 접속",
+            "2. 회원가입/로그인",
+            "3. 증거자료 준비",
+            "4. 신고서 작성",
+            "5. 자료 제출"
+          ],
+          "required_documents": [
+            "저작권 등록증 사본",
+            "침해 증거 스크린샷",
+            "작품 원본 링크"
+          ],
+          "processing_time": "일반적으로 3-5일 소요",
+          "follow_up": "처리 결과는 이메일로 통보됩니다."
+        },
+        "priority": "high",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA004",
+        "category": "법적 대응",
+        "question": "내용증명은 언제 보내는 것이 좋나요?",
+        "answer": {
+          "summary": "저작권 침해 사실 확인 후 공식 경고 수단으로 활용됩니다.",
+          "steps": [
+            "1. 침해 증거 확보 완료",
+            "2. 한국저작권보호원 신고 후",
+            "3. 내용증명 발송 (침해자 정보 확인 시)"
+          ],
+          "required_content": [
+            "침해 사실 적시",
+            "중단 요청 사항",
+            "기한 명시",
+            "법적 조치 가능성 언급"
+          ],
+          "legal_basis": "저작권법 제123조",
+          "caution": "발송 전 법률 전문가 검토 권장"
+        },
+        "priority": "medium",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA005",
+        "category": "디지털 저작권",
+        "question": "웹툰 워터마크는 어떻게 설정하는게 좋나요?",
+        "answer": {
+          "summary": "식별 가능하면서도 작품 감상에 방해되지 않는 수준으로 설정",
+          "recommendations": [
+            "작가명/사이트 로고 반투명 처리",
+            "페이지마다 위치 변경",
+            "이미지 메타데이터 포함"
+          ],
+          "technical_tips": [
+            "해상도: 원본의 10-15%",
+            "투명도: 30-40% 권장",
+            "위치: 중앙 또는 코너 부분"
+          ],
+          "caution": "과도한 워터마크는 독자 경험 저하 가능",
+          "additional_info": "디지털 지문 기술 병행 권장"
+        },
+        "priority": "medium",
+        "response_type": "technical"
+      },
+      {
+        "id": "QA006",
+        "category": "해외 침해",
+        "question": "해외 서버 불법 사이트 특별 대응 방법은?",
+        "answer": {
+          "summary": "국제 저작권 보호 체계를 활용한 대응이 필요합니다.",
+          "steps": [
+            "1. DMCA 테이크다운 신청",
+            "2. 해외 호스팅사에 직접 신고",
+            "3. 현지 저작권 단체 협조 요청"
+          ],
+          "required_documents": [
+            "저작권 보유 증명서",
+            "침해 증거 자료",
+            "영문 신고서"
+          ],
+          "useful_links": [
+            "DMCA 신고 페이지",
+            "국제저작권센터"
+          ],
+          "legal_basis": "국제저작권조약",
+          "caution": "국가별 대응 절차가 다를 수 있음"
+        },
+        "priority": "high",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA007",
+        "category": "2차 저작물",
+        "question": "웹툰의 드라마화 계약 시 주의할 점은?",
+        "answer": {
+          "summary": "2차적 저작물 작성권에 대한 명확한 계약이 필요합니다.",
+          "key_points": [
+            "계약 범위 명확화",
+            "수익 배분 비율",
+            "원작 크레딧 표기",
+            "각색 범위 설정"
+          ],
+          "contract_essentials": [
+            "저작권 사용 기간",
+            "지역적 범위",
+            "2차 저작물 범위",
+            "수익 정산 방식"
+          ],
+          "legal_basis": "저작권법 제45조",
+          "caution": "포괄적 권리 양도 조항 주의"
+        },
+        "priority": "high",
+        "response_type": "advisory"
+      },
+      {
+        "id": "QA008",
+        "category": "피해 산정",
+        "question": "정신적 손해배상도 청구 가능한가요?",
+        "answer": {
+          "summary": "저작인격권 침해에 따른 정신적 손해배상 청구가 가능합니다.",
+          "requirements": [
+            "저작인격권 침해 증명",
+            "정신적 피해 입증",
+            "침해와 피해의 인과관계"
+          ],
+          "calculation_factors": [
+            "침해의 고의성",
+            "침해 기간",
+            "피해의 범위",
+            "작품의 인지도"
+          ],
+          "legal_basis": "저작권법 제127조",
+          "precedent": "대법원 2017다222718 판결",
+          "caution": "합리적 배상액 산정 필요"
+        },
+        "priority": "medium",
+        "response_type": "legal"
+      },
+      {
+        "id": "QA009",
+        "category": "저���권 등록",
+        "question": "캐릭터만 따로 저작권 등록이 가능한가요?",
+        "answer": {
+          "summary": "캐릭터의 독자적인 저작물성이 인정되는 경우 가능합니다.",
+          "requirements": [
+            "캐릭터의 독창성",
+            "식별가능한 특징",
+            "상업적 가치"
+          ],
+          "registration_process": [
+            "1. 캐릭터 도안 준비",
+            "2. 특징 서술서 작성",
+            "3. 한국저작권위원회 등록"
+          ],
+          "legal_basis": "저작권법 제2조",
+          "benefits": [
+            "캐릭터 상품화 권리 보호",
+            "침해 대응 용이",
+            "라이선싱 계약 편의"
+          ]
+        },
+        "priority": "medium",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA010",
+        "category": "팬아트/팬번역",
+        "question": "팬아트 허용 범위를 어떻게 정해야 하나요?",
+        "answer": {
+          "summary": "명확한 가이드라인 설정으로 2차 창작 활성화와 권리 보호의 균형을 맞춥니다.",
+          "guidelines": [
+            "비영리적 사용 허용",
+            "출처/원작 표기 필수",
+            "상업적 이용 금지",
+            "원작 이미지 변형 제한"
+          ],
+          "prohibited_actions": [
+            "무단 상업적 이용",
+            "원작 이미지 직접 사용",
+            "원작 스토리 무단 복제"
+          ],
+          "recommended_policy": "팬아트 가이드라인 공식 발표",
+          "benefits": [
+            "팬덤 활성화",
+            "작품 홍보 효과",
+            "법적 분쟁 예방"
+          ]
+        },
+        "priority": "medium",
+        "response_type": "policy"
+      },
+      {
+        "id": "QA011",
+        "category": "저작권 등록",
+        "question": "연재 시작 전에 해야 할 저작권 등록은?",
+        "answer": {
+          "summary": "연재 시작 전 기본적인 저작권 보호 조치가 필요합니다.",
+          "steps": [
+            "1. 한국저작권위원회 사이트 접속",
+            "2. 작품 기본 정보 등록",
+            "3. 주요 캐릭터/스토리 라인 등록",
+            "4. 1화 내용 등록"
+          ],
+          "required_materials": [
+            "작품 설정집",
+            "캐릭터 원화",
+            "시놉시스",
+            "1화 완성본"
+          ],
+          "benefits": [
+            "저작권 침해 입증 용이",
+            "법적 분쟁 시 유리",
+            "창작 시점 증명"
+          ],
+          "legal_basis": "저작권법 제53조",
+          "cost": "기본 수수료 정보 포함"
+        },
+        "priority": "high",
+        "response_type": "procedure"
+      },
+      {
+        "id": "QA012",
+        "category": "계약 관련",
+        "question": "플랫폼과의 계약서에서 꼭 확인해야 할 조항은?",
+        "answer": {
+          "summary": "작가의 권리 보호를 위한 핵심 조항 확인이 필수적입니다.",
+          "key_points": [
+            "저작권 귀속 관계",
+            "수익 배분율",
+            "2차 저작권 계약 권한",
+            "계약 기간"
+          ],
+          "check_list": [
+            "독점/비독점 계약 여부",
+            "해지 조건",
+            "수정 권한 범위",
+            "정산 주기와 방식"
+          ],
+          "warning_signs": [
+            "포괄적 권리 양도 조항",
+            "일방적 계약 변경 조항",
+            "과도한 위약금 조항"
+          ],
+          "legal_basis": "저작권법 제46조",
+          "caution": "불리한 조항 발견 시 협상 필요"
+        },
+        "priority": "high",
+        "response_type": "advisory"
+      },
+      {
+        "id": "QA013",
+        "category": "수익성 보호",
+        "question": "해외 수익 누락 확인은 어떻게 하나요?",
+        "answer": {
+          "summary": "해외 플랫폼의 수익 정산 내역을 체계적으로 확인해야 합니다.",
+          "verification_steps": [
+            "1. 해외 플랫폼 대시보드 확인",
+            "2. 조회수 대비 수익 비교",
+            "3. 환율 변동 체크",
+            "4. 누적 데이터 분석"
+          ],
+          "required_data": [
+            "월별 조회수 통계",
+            "국가별 과금 정책",
+            "환율 변동 기록",
+            "정산 명세서"
+          ],
+          "red_flags": [
+            "급격한 수익 감소",
+            "조회수 대비 낮은 수익",
+            "불규칙한 정산"
+          ],
+          "action_items": [
+            "이상 발견 시 즉시 플랫폼에 문의",
+            "증거 자료 수집",
+            "필요시 법률 자문"
+          ]
+        },
+        "priority": "medium",
+        "response_type": "technical"
+      }
+    ]
+  }
