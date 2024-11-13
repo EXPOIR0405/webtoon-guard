@@ -62,9 +62,13 @@
 ## 설치 방법 (개발자용)
 
 bash
+
 git clone https://github.com/your-username/webtoon-guard.git
+
 cd webtoon-guard
+
 npm install
+
 npm run dev
 
 
