@@ -2,6 +2,8 @@
 import { useState } from "react";
 import ChatBot from '@/components/ChatBot';
 import "./globals.css";
+import Navigation from '@/components/Navigation';
+import Footer from '@/components/Footer';
 
 export default function RootLayout({ children }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -9,7 +11,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ko">
       <body>
-        {children}
+        <Navigation />
+        <main className="min-h-screen">
+          {children}
+        </main>
+        <Footer />
         
         {/* 챗봇 버튼 */}
         <div className="fixed bottom-4 right-4 z-50">

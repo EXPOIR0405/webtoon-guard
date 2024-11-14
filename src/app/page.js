@@ -76,13 +76,6 @@ export default function Home() {
                       <li>추천수 기반 계산은 참고용으로만 활용해주세요</li>
                     </ul>
                   </div>
-
-                  <div>
-                    <p className="text-blue-800 font-medium">💬 문의하기</p>
-                    <p className="mt-1 text-blue-600">
-                      기타 문의사항: <a href="mailto:rkdalswjd0405@gmail.com" className="underline hover:text-blue-800">rkdalswjd0405@gmail.com</a>
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>

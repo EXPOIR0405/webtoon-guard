@@ -74,7 +74,7 @@ export default function ChatBot({ onClose }) {
   const [messages, setMessages] = useState([
     {
       sender: 'bot',
-      text: '안녕하세요! 웹툰 저작권 관련 문의를 도와드립니다.'
+      text: '안녕하세요! 웹툰 작가들의 저작권 보호를 위한 웹툰 법률 상담 서비스입니다. 궁금한 점이 있으실까요?'
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -86,7 +86,6 @@ export default function ChatBot({ onClose }) {
     "저작권 등록은 어떻게 하나요?",
     "불법 복제 발견시 대응 방법은?",
     "해외 서비스 침해 대응 방법은?",
-    "팬아트 가이드라인은 어떻게 되나요?"
   ];
 
   const scrollToBottom = () => {
