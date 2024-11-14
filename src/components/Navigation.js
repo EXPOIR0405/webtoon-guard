@@ -9,7 +9,7 @@ export default function Navigation() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b fixed top-0 left-0 right-0 z-50">
+    <nav className="bg-white border-b z-50">
       <div className="container mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* 로고 영역 */}

@@ -18,7 +18,7 @@ export const operators = [
   },
   {
     name: "아지툰 운영자",
-    image: "/arrest.jpg",
+    image: "/arrest.png",
     sites: ["아지툰"],
     status: "집행유예 중 재범 (뻔뻔함의 극치 🤡)",
     damages: {
@@ -31,7 +31,7 @@ export const operators = [
       "법원을 기만한 연기의 대가 🎭",
       "처벌 수위가 너무 낮아서 오히려 신난 사례 😈"
     ],
-    lastUpdated: "2024-03-13"
+    lastUpdated: "2024-11-14"
   }
 
   
