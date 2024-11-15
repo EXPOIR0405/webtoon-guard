@@ -21,7 +21,8 @@ export default function WebtoonForm() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showManualInput, setShowManualInput] = useState(false);
-
+  const [evidences, setEvidences] = useState([]);
+  const [evidenceDescriptions, setEvidenceDescriptions] = useState([]);
 
   // 용도 선택 옵션
   const purposeOptions = [
@@ -49,99 +50,218 @@ export default function WebtoonForm() {
     }
   };
 
+  // 증거자료 추가 함수
+  const handleAddEvidence = (e) => {
+    const files = Array.from(e.target.files);
+    const newEvidences = [...evidences, ...files];
+    const newDescriptions = [...evidenceDescriptions, ...files.map(() => '')];
+    
+    setEvidences(newEvidences);
+    setEvidenceDescriptions(newDescriptions);
+  };
+
+  // 증거자료 설명 업데이트
+  const handleDescriptionChange = (index, description) => {
+    const newDescriptions = [...evidenceDescriptions];
+    newDescriptions[index] = description;
+    setEvidenceDescriptions(newDescriptions);
+  };
+
+  // 증거자료 삭제
+  const handleRemoveEvidence = (index) => {
+    const newEvidences = evidences.filter((_, i) => i !== index);
+    const newDescriptions = evidenceDescriptions.filter((_, i) => i !== index);
+    setEvidences(newEvidences);
+    setEvidenceDescriptions(newDescriptions);
+  };
+
+  // 피해 내용 생성 함수 수정
+  const getDamageContent = () => {
+    const views = totalViews || calculatedViews || 0;
+    const damage = damageAmount || 0;
+    
+    // 추천수 기반일 경우
+    if (calculatedViews) {
+      return `불법사이트 ${siteName}에서 피해자의 웹툰 ${webtoonTitle}이 무단으로 복제 및 게시되어 해당 사이트 내 추천수 ${totalRecommendations.toLocaleString()}회가 확인되어있으며, 이는 추정 조회수 ${calculatedViews.toLocaleString()}회에 해당하는 상당한 규모의 불법 열람이 발생했음을 시사합니다. 이에 따른 정상 구매 기준 예상 피해액은 최소 ${damage.toLocaleString()}원으로 추산됩니다.`;
+    }
+    
+    // 조회수 직접 입력 시
+    return `불법사이트 ${siteName}에서 피해자의 웹툰 ${webtoonTitle}이 무단으로 복제 및 게시되어 총 ${views.toLocaleString()}회의 불법 열람이 직접 확인되었으며, 이는 정상 구매 기준 ${damage.toLocaleString()}원의 명백한 피해액이 발생하였음을 의미합니다.`;
+  };
+
+  // PDF 생성시 사용할 용도 텍스트 가져오기
+  const getPurposeText = () => {
+    const selectedPurpose = purposeOptions.find(opt => opt.value === purpose);
+    return selectedPurpose ? selectedPurpose.label : purpose;
+  };
+
   // PDF 생성
   const generatePDF = async () => {
-    // 피해 내용 문구를 조건에 따라 다르게 생성
-    const getDamageContent = () => {
-      if (totalViews) {
-        return `
-          불법사이트 ${siteName}에서 피해자의 웹툰 '${webtoonTitle}'이(가) 무단으로 복제 및 게시되어
-          총 ${parseInt(totalViews).toLocaleString()}회의 불법 열람이 확인되었으며,
-          이에 따른 정상 구매 기준 피해액은 ${damageAmount?.toLocaleString()}원으로 산정됩니다.
-        `;
-      } else {
-        return `
-          불법사이트 ${siteName}에서 피해자의 웹툰 '${webtoonTitle}'이(가) 무단으로 복제 및 게시되어
-          해당 사이트 내 추천수 ${parseInt(totalRecommendations).toLocaleString()}회가 확인되었으며,
-          이는 추정 조회수 ${calculatedViews?.toLocaleString()}회에 해당하는 상당한 규모의 불법 열람이 발생했음을 시사합니다.
-          이에 따른 정상 구매 기준 예상 피해액은 최소 ${damageAmount?.toLocaleString()}원으로 추산됩니다.
-        `;
-      }
-    };
+    // 임시 컨테이너 생성
+    const container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.left = '-9999px';
+    container.style.top = '0px';
+    document.body.appendChild(container);
 
+    // 기본 정보 요소 생성
     const reportElement = document.createElement('div');
     reportElement.innerHTML = `
       <style>
         @import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css');
-      </style>
-      <div style="padding: 40px; font-family: 'NanumSquare', sans-serif; color: #000000;">
-        <h1 style="text-align: center; font-size: 28px; margin-bottom: 60px; font-weight: 800;">웹툰 피해사실 정리서</h1>
         
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 60px;">
+        * {
+          color: #000000;
+        }
+        
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 0 auto;
+          max-width: 800px;
+        }
+        
+        td {
+          border: 1px solid #000;
+          padding: 15px;
+          height: 50px;
+          color: #000000;
+        }
+        
+        .label-cell {
+          width: 120px;
+          background-color: #f8f9fa;
+          font-weight: bold;
+          text-align: center;
+        }
+        
+        .content-cell {
+          padding-left: 20px;
+          line-height: 1.6;
+        }
+        
+        .damage-cell {
+          height: 200px;
+          vertical-align: top;
+          white-space: pre-line;
+        }
+      </style>
+      
+      <div style="padding: 40px; font-family: 'NanumSquare', sans-serif; max-width: 800px; margin: 0 auto;">
+        <h1 style="text-align: center; font-size: 28px; margin-bottom: 40px; font-weight: 800;">웹툰 피해사실 정리서</h1>
+        
+        <table>
           <tr>
-            <td style="width: 20%; background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">성 명</td>
-            <td style="width: 80%; padding: 15px 20px; border: 1px solid #000;">${victimName}</td>
+            <td class="label-cell">성 명</td>
+            <td class="content-cell">${victimName}</td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">생년월일</td>
-            <td style="padding: 15px 20px; border: 1px solid #000;">${birthDate}</td>
+            <td class="label-cell">생년월일</td>
+            <td class="content-cell">${birthDate}</td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">주 소</td>
-            <td style="padding: 15px 20px; border: 1px solid #000;">${address}</td>
+            <td class="label-cell">주 소</td>
+            <td class="content-cell">${address}</td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">전화번호</td>
-            <td style="padding: 15px 20px; border: 1px solid #000;">${phoneNumber}</td>
+            <td class="label-cell">전화번호</td>
+            <td class="content-cell">${phoneNumber}</td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">피해작품</td>
-            <td style="padding: 15px 20px; border: 1px solid #000;">${webtoonTitle}</td>
+            <td class="label-cell">피해작품</td>
+            <td class="content-cell">${webtoonTitle}</td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">피해내용</td>
-            <td style="padding: 15px 20px; border: 1px solid #000; line-height: 1.6;">
+            <td class="label-cell">피해내용</td>
+            <td class="content-cell damage-cell">
               ${getDamageContent()}
             </td>
           </tr>
           <tr>
-            <td style="background: #f8f9fa; padding: 15px 20px; border: 1px solid #000; font-weight: 700;">용 도</td>
-            <td style="padding: 15px 20px; border: 1px solid #000;">
-              ${purposeOptions.find(opt => opt.value === purpose)?.label || purpose}
-            </td>
+            <td class="label-cell">용 도</td>
+            <td class="content-cell">${getPurposeText()}</td>
           </tr>
         </table>
-
-        <p style="text-align: center; margin: 40px 0; font-size: 16px; line-height: 1.8;">
-          본 문서는 피해 사실 신고 및 법적 대응 시 참고 자료로 활용될 수 있으며,<br>
-          실제 법적 조치를 위해서는 관련 기관이나 법률 전문가와의 상담이 필요할 수 있습니다.
-        </p>
         
-        <p style="text-align: center; margin: 60px 0; font-size: 16px;">
+        <p style="text-align: center; margin-top: 60px; font-size: 16px;">
           ${new Date().getFullYear()}년 ${new Date().getMonth() + 1}월 ${new Date().getDate()}일
         </p>
       </div>
     `;
-
-    document.body.appendChild(reportElement);
+    container.appendChild(reportElement);
 
     try {
-      const canvas = await html2canvas(reportElement, {
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      
+      // 기본 정보 페이지 생성
+      const basicInfoCanvas = await html2canvas(reportElement, {
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        windowWidth: 1024,
+        windowHeight: 1448
       });
-
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
       
-      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      const imgData = basicInfoCanvas.toDataURL('image/png');
+      pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), (basicInfoCanvas.height * pdf.internal.pageSize.getWidth()) / basicInfoCanvas.width);
+
+      // 증거자료가 있는 경우 처리
+      if (evidences.length > 0) {
+        for (let i = 0; i < evidences.length; i++) {
+          // 새 페이지 추가
+          pdf.addPage();
+
+          // 증거자료 요소 생성
+          const evidenceElement = document.createElement('div');
+          evidenceElement.innerHTML = `
+            <div style="padding: 40px; font-family: 'NanumSquare', sans-serif;">
+              <h2 style="font-size: 32px; margin-bottom: 30px; color: #000000; font-weight: bold; text-align: center;">증 ${i + 1}</h2>
+              <div style="max-height: 500px; overflow: hidden; margin-bottom: 30px; text-align: center;">
+                <img 
+                  src="${URL.createObjectURL(evidences[i])}" 
+                  style="max-width: 100%; max-height: 500px; object-fit: contain;"
+                >
+              </div>
+              <div style="background-color: #f9fafb; padding: 20px; border-radius: 4px;">
+                <p style="font-weight: bold; margin-bottom: 15px; color: #000000; font-size: 24px;">상세 설명</p>
+                <p style="line-height: 1.8; color: #000000; font-size: 18px;">${evidenceDescriptions[i] || '설명 없음'}</p>
+              </div>
+            </div>
+          `;
+          container.appendChild(evidenceElement);
+
+          // 이미지가 로드될 때까지 대기
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          const canvas = await html2canvas(evidenceElement, {
+            scale: 2,
+            useCORS: true,
+            logging: false,
+            backgroundColor: '#ffffff',
+            windowWidth: 1024,
+            windowHeight: 1448,
+            height: 1000,
+            onclone: function(clonedDoc) {
+              const img = clonedDoc.querySelector('img');
+              if (img) {
+                img.style.maxHeight = '500px';
+                img.style.objectFit = 'contain';
+              }
+            }
+          });
+
+          const evidenceImgData = canvas.toDataURL('image/png');
+          pdf.addImage(evidenceImgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), (canvas.height * pdf.internal.pageSize.getWidth()) / canvas.width);
+          
+          container.removeChild(evidenceElement);
+        }
+      }
+
       pdf.save('웹툰_피해사실_정리서.pdf');
     } finally {
-      document.body.removeChild(reportElement);
+      // 임시 컨테이너 제거
+      document.body.removeChild(container);
     }
   };
 
@@ -223,7 +343,14 @@ export default function WebtoonForm() {
         <input
           type="number"
           value={totalViews}
-          onChange={(e) => setTotalViews(e.target.value)}
+          onChange={(e) => {
+            setTotalViews(e.target.value);
+            // 조회수가 입력되면 추천수와 계산된 조회수를 초기화
+            if (e.target.value) {
+              setTotalRecommendations('');
+              setCalculatedViews(null);
+            }
+          }}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black"
           placeholder="실제 조회수를 알고 있는 경우 입력해주세요"
         />
@@ -235,7 +362,10 @@ export default function WebtoonForm() {
           <input
             type="number"
             value={totalRecommendations}
-            onChange={(e) => setTotalRecommendations(e.target.value)}
+            onChange={(e) => {
+              setTotalRecommendations(e.target.value);
+              setCalculatedViews(null); // 추천수가 변경되면 계산된 조회수 초기화
+            }}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black"
             placeholder="정확한 조회수를 모를 경우 총 추천수를 입력해주세요"
           />
@@ -309,6 +439,65 @@ export default function WebtoonForm() {
       >
         PDF 다운로드
       </button>
+
+      {/* 증거자료 섹션 */}
+      <div className="mt-6">
+        <label className="block text-sm font-medium text-black">증거자료 첨부</label>
+        <input
+          type="file"
+          multiple
+          accept="image/*"
+          onChange={handleAddEvidence}
+          className="mt-1 block w-full text-black
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-md file:border-0
+            file:text-sm file:font-semibold
+            file:bg-blue-50 file:text-blue-700
+            hover:file:bg-blue-100"
+        />
+        <p className="text-sm text-black mt-1">
+          * 스크린샷, 캡처 이미지 등의 증거자료를 첨부해주세요
+        </p>
+      </div>
+
+      {/* 첨부된 증거자료 목록 */}
+      {evidences.map((file, index) => (
+        <div key={index} className="border border-gray-200 rounded-lg p-6 space-y-4">
+          <div className="flex justify-between items-center">
+            <h5 className="text-lg font-bold text-black text-left">증 {index + 1}</h5>
+            <button
+              type="button"
+              onClick={() => handleRemoveEvidence(index)}
+              className="text-red-600 hover:text-red-700 font-medium"
+            >
+              삭제
+            </button>
+          </div>
+          
+          <div className="space-y-2">
+            <p className="text-black font-medium">{file.name}</p>
+            {file.type.startsWith('image/') && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt={`증거자료 ${index + 1}`}
+                className="max-w-full h-auto rounded-md"
+              />
+            )}
+          </div>
+
+          <div className="bg-gray-50 p-4 rounded-md">
+            <label className="block text-sm font-medium text-black mb-2">
+              상세 설명
+            </label>
+            <textarea
+              placeholder="증거자료에 대한 상세 설명을 입력해주세요"
+              value={evidenceDescriptions[index]}
+              onChange={(e) => handleDescriptionChange(index, e.target.value)}
+              className="w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-black min-h-[100px] text-[12px]"
+            />
+          </div>
+        </div>
+      ))}
     </form>
   );
 }
