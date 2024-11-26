@@ -1,16 +1,18 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { faqData } from '../data/faqData';
 
 
 const FAQPage = () => {
-  const [activeCategory, setActiveCategory] = useState('질문 TOP');
+  const [activeCategory, setActiveCategory] = useState('저작권 관련 질문');
   const [searchTerm, setSearchTerm] = useState('');
-  const categories = ['저작권 관련 질문', '계약 관련 질문', '기타 사례', ];
+  const categories = ['저작권 관련 질문', '계약 관련 질문', '기타 사례',];
   const faqs = faqData;
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const filteredFAQs = (faqs[activeCategory] || []).filter(faq =>
     faq.q.includes(searchTerm) || faq.a.includes(searchTerm)
@@ -19,6 +21,15 @@ const FAQPage = () => {
   const allFilteredFAQs = Object.values(faqs).flat().filter(faq =>
     faq.q.includes(searchTerm) || faq.a.includes(searchTerm)
   );
+
+  const getFAQsForCurrentPage = (faqs) => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return faqs.slice(startIndex, endIndex);
+  };
+
+  const currentFAQs = getFAQsForCurrentPage(searchTerm ? allFilteredFAQs : filteredFAQs);
+  const totalPages = Math.ceil((searchTerm ? allFilteredFAQs.length : filteredFAQs.length) / itemsPerPage);
 
   return (
     <div className="min-h-screen bg-white">
@@ -56,7 +67,7 @@ const FAQPage = () => {
             </ul>
           </aside>
           <div className="w-full md:w-3/4">
-            {(searchTerm ? allFilteredFAQs : filteredFAQs).map((faq, index) => (
+            {currentFAQs.map((faq, index) => (
               <div key={index} className="mb-6 border-b pb-6">
                 <h3 
                   className="text-base md:text-lg font-medium text-gray-900 mb-2 cursor-pointer" 
@@ -74,6 +85,30 @@ const FAQPage = () => {
                 ></p>
               </div>
             ))}
+            
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center space-x-4 mt-8">
+                <button
+                  onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                  className="p-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-blue-50 text-blue-600"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                
+                <span className="text-gray-600">
+                  {currentPage} / {totalPages}
+                </span>
+                
+                <button
+                  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
+                  className="p-2 rounded-full disabled:opacity-30 disabled:cursor-not-allowed hover:bg-blue-50 text-blue-600"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </main>

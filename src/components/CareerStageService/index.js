@@ -24,7 +24,7 @@ const CareerStageService = () => {
   const careerStages = [
     {
       id: 'aspirant',
-      title: '웹툰 작가 지망생',
+      title: '예비 작가',
       image: '/student.png',
       supports: [
         {
@@ -64,6 +64,13 @@ const CareerStageService = () => {
 
   return (
     <div className="career-stage-container">
+      <div className="intro-message">
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">맞춤형 지원 정보</h2>
+        <p className="text-gray-600 mb-8">
+          해당하는 유형을 선택하시면 맞춤형 지원 정보를 공유해드립니다.
+        </p>
+      </div>
+
       <div className="career-icons">
         {careerStages.map((stage) => (
           <div 

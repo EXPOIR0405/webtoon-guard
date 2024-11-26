@@ -333,7 +333,17 @@ function LegalSupport() {
                     <h4>온라인상담 {getServiceStatusIcon(org.services.online.available)}</h4>
                     {org.services.online.available && (
                       <div className={styles['status-details']}>
-                        <p>💻 {org.services.online.platform}</p>
+                        <p>
+                          💻{' '}
+                          <a
+                            href={org.services.online.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles['online-link']}
+                          >
+                            {org.services.online.platform}
+                          </a>
+                        </p>
                       </div>
                     )}
                   </div>
