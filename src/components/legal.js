@@ -200,7 +200,7 @@ const FAQPage = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-3xl font-bold mb-8 text-black">법률 정보</h2>
+        <h2 className="text-3xl font-bold mb-8 text-black">자주 묻는 질문</h2>
         <div className="relative mb-8">
           <input
             type="text"
@@ -254,7 +254,8 @@ const FAQPage = () => {
       <footer className="bg-gray-100 py-4 mt-8">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-sm text-gray-500">
-            해당 내용은 만화인 헬프데스크 2020을 참고하여 작성되었습니다. 답변 내용은 질문에 대한 법률전문가의 개인적인 의견이므로 참고용으로 사용해주세요.
+            해당 내용은 만화인 헬프데스크 2020 자료집을 참고하여 작성되었습니다.<br /> 
+            이후 내용은 정기적으로 추가될 예정입니다. 내용은 질문에 대한 법률전문가의 개인적인 의견이므로 참고용으로 사용해주세요.
           </p>
         </div>
       </footer>

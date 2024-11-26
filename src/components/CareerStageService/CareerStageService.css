@@ -183,3 +183,21 @@
   transform: none;
   box-shadow: none;
 }
+.no-data-message {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.no-data-message p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.no-data-message p:first-child {
+  font-weight: 500;
+  color: #333;
+}

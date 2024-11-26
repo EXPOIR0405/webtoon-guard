@@ -273,7 +273,7 @@ const legalOrganizations = {
           "계약 관련 상담",
           "노동 관련 상담"
         ],
-        website: "https://www.komacon.kr"
+        website: "http://coreawebtoon.or.kr/wp/"
       },
     ]
   }

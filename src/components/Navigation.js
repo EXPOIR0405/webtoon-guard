@@ -85,25 +85,16 @@ export default function Navigation() {
           <div className="px-2 pt-2 pb-3 space-y-1">
             <div className="space-y-1">
               <Link href="/hall-of-shame" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                불법 운영자 명단
+                명예의 전당
               </Link>
-              <Link href="/copyright-guide" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                웹툰 저작권 보호 가이드
-              </Link>
-              <Link href="#report" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                피해 신고 작성
-              </Link>
-              <Link href="#consultation" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
+              <Link href="/LegalSupport" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
                 법률 상담
               </Link>
             </div>
-            <Link href="#guide" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-              이용가이드
-            </Link>
             <Link href="/legal" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
               자주 묻는 질문
             </Link>
-            <Link href="#contact" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
+            <Link href="/inquiry" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
               문의하기
             </Link>
           </div>

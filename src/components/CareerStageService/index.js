@@ -25,7 +25,7 @@ const CareerStageService = () => {
     {
       id: 'aspirant',
       title: '웹툰 작가 지망생',
-      image: '/aspirant.png',
+      image: '/student.png',
       supports: [
         {
           title: '웹툰 제작사 선화작가 취업과정',
@@ -39,7 +39,7 @@ const CareerStageService = () => {
     {
       id: 'webtoonist',
       title: '웹툰 작가',
-      image: '/aspirant.png',
+      image: '/artist.png',
       supports: [
         // 지원 정보들
       ]
@@ -47,7 +47,7 @@ const CareerStageService = () => {
     {
       id: 'freelancer',
       title: '프리랜서',
-      image: '/aspirant.png',
+      image: '/freeman.png',
       supports: [
         // 지원 정보들
       ]
@@ -55,7 +55,7 @@ const CareerStageService = () => {
     {
       id: 'business',
       title: '사업자',
-      image: '/aspirant.png',
+      image: '/building.png',
       supports: [
         // 지원 정보들
       ]
@@ -89,25 +89,34 @@ const CareerStageService = () => {
           <div className="support-grid">
             {careerStages
               .find(stage => stage.id === selectedStage)
-              .supports.map((support, index) => (
-                <div key={index} className="support-card">
-                  <h4>{support.title}</h4>
-                  <p className="description">{support.description}</p>
-                  <div className="date-container">
-                    <span className="date">{support.date}</span>
-                    {isDeadlinePassed(support.date) && (
-                      <span className="deadline-badge">마감</span>
-                    )}
-                  </div>
-                  <button 
-                    className={`apply-button ${isDeadlinePassed(support.date) ? 'disabled' : ''}`}
-                    onClick={() => window.location.href = support.link}
-                    disabled={isDeadlinePassed(support.date)}
-                  >
-                    {isDeadlinePassed(support.date) ? '마감됨' : '신청하기'}
-                  </button>
+              .supports.length > 0 ? (
+                careerStages
+                  .find(stage => stage.id === selectedStage)
+                  .supports.map((support, index) => (
+                    <div key={index} className="support-card">
+                      <h4>{support.title}</h4>
+                      <p className="description">{support.description}</p>
+                      <div className="date-container">
+                        <span className="date">{support.date}</span>
+                        {isDeadlinePassed(support.date) && (
+                          <span className="deadline-badge">마감</span>
+                        )}
+                      </div>
+                      <button 
+                        className={`apply-button ${isDeadlinePassed(support.date) ? 'disabled' : ''}`}
+                        onClick={() => window.location.href = support.link}
+                        disabled={isDeadlinePassed(support.date)}
+                      >
+                        {isDeadlinePassed(support.date) ? '마감됨' : '신청하기'}
+                      </button>
+                    </div>
+                  ))
+              ) : (
+                <div className="no-data-message">
+                  <p>현재 등록된 지원 정보가 없습니다.</p>
+                  <p>업데이트 예정입니다. 감사합니다.</p>
                 </div>
-            ))}
+              )}
           </div>
         </div>
       )}

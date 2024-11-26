@@ -98,7 +98,7 @@ const OneStopService = () => {
           className={activeTab === 'career' ? 'active' : ''} 
           onClick={() => setActiveTab('career')}
         >
-          직종별 지원 정보
+          상황별 지원 정보
         </button>
         <button 
           className={activeTab === 'etc' ? 'active' : ''} 
