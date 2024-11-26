@@ -2,8 +2,24 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import './CareerStageService.css';
+
 const CareerStageService = () => {
   const [selectedStage, setSelectedStage] = useState(null);
+
+  const isDeadlinePassed = (dateString) => {
+    const endDateStr = dateString.split('~')[1].trim();
+    const [year, month, day] = endDateStr
+      .replace('년', '')
+      .replace('월', '')
+      .replace('일', '')
+      .split(' ')
+      .map(num => parseInt(num));
+    const endDate = new Date(year, month - 1, day);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    endDate.setHours(0, 0, 0, 0);
+    return today > endDate;
+  };
 
   const careerStages = [
     {
@@ -11,10 +27,12 @@ const CareerStageService = () => {
       title: '웹툰 작가 지망생',
       image: '/aspirant.png',
       supports: [
-        // {
-        //   title: '예방접종증명 신청',
-        //   description: '감염병에 걸리지 않도록 규정된 4가지 예방접종 증명서를 온라인으로 신청할 수 있는 서비스입니다.',
-        // },
+        {
+          title: '웹툰 제작사 선화작가 취업과정',
+          description: '웹툰 제작사 선화작가 교육 프로그램입니다. 교육비는 전액 무료이며, 중식 제공합니다.',
+          date: '2024년 10월 17일 ~ 2024년 12월 05일',
+          link: 'https://sesac.seoul.kr/course/active/detail.do?courseActiveSeq=2829'
+        },
         // ... 다른 지원 정보들
       ]
     },
@@ -74,12 +92,19 @@ const CareerStageService = () => {
               .supports.map((support, index) => (
                 <div key={index} className="support-card">
                   <h4>{support.title}</h4>
-                  <p>{support.description}</p>
+                  <p className="description">{support.description}</p>
+                  <div className="date-container">
+                    <span className="date">{support.date}</span>
+                    {isDeadlinePassed(support.date) && (
+                      <span className="deadline-badge">마감</span>
+                    )}
+                  </div>
                   <button 
-                    className="apply-button"
+                    className={`apply-button ${isDeadlinePassed(support.date) ? 'disabled' : ''}`}
                     onClick={() => window.location.href = support.link}
+                    disabled={isDeadlinePassed(support.date)}
                   >
-                    신청하기
+                    {isDeadlinePassed(support.date) ? '마감됨' : '신청하기'}
                   </button>
                 </div>
             ))}

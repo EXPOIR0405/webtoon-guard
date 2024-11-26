@@ -10,12 +10,12 @@ export default function Navigation() {
 
   return (
     <nav className="bg-white border-b z-50">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto pl-2 pr-6">
         <div className="flex justify-between items-center h-16">
           {/* 로고 영역 */}
-          <div className="flex items-center">
+          <div className="flex-shrink-0 flex items-center ml-0">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold text-blue-600">불법웹툰대응센터</span>
+              <span className="text-xl font-bold text-blue-600">그림지기</span>
             </Link>
           </div>
 
@@ -56,9 +56,15 @@ export default function Navigation() {
                 <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   불법 사이트 운영자 명예의 전당
                 </Link>
-                <Link href="#consultation" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  법률 상담 지원처
+                <Link href="#contest" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  공모전 소식
                 </Link>
+                <Link href="/LegalSupport" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  법률 상담
+                </Link>
+                {/* <Link href="/webtoon-form" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  피해사실 정리서 작성
+                </Link> */}
               </div>
             </div>
 

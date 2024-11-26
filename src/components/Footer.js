@@ -7,9 +7,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* 로고 및 설명 */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-lg font-bold text-blue-600 mb-4">불법웹툰대응센터</h3>
+            <h3 className="text-lg font-bold text-blue-600 mb-4">그림지기</h3>
             <p className="text-gray-600 mb-4">
-              웹툰/웹소설 저작권 보호와 불법 유통 근절을 위해 노력하고 있습니다.
+              당신의 창작을 지키는 그림지기
+            </p>
+            <p className="text-gray-600 mb-4">
+              창작자의 예술활동에 도움이 되는 서비스를 알려드립니다.
             </p>
           </div>
 
@@ -19,7 +22,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/hall-of-shame" className="text-gray-600 hover:text-blue-600">
-                  불법 운영자 명단
+                  명예의 전당
                 </Link>
               </li>
               <li>
@@ -28,9 +31,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#report" className="text-gray-600 hover:text-blue-600">
-                  피해 신고
-                </Link>
+                {/* <Link href="#report" className="text-gray-600 hover:text-blue-600">
+                  
+                </Link> */}
               </li>
             </ul>
           </div>
@@ -40,7 +43,7 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-900 mb-4">문의하기</h4>
             <ul className="space-y-3">
               <li className="text-gray-600">
-                이메일: rkdalswjd0405@gmail.com
+                이메일: webtoon.guard@gmail.com
               </li>
             </ul>
           </div>
@@ -49,11 +52,11 @@ export default function Footer() {
         {/* 저작권 표시 */}
         <div className="border-t border-gray-200 mt-8 pt-8">
           <p className="text-sm text-gray-500 text-center">
-            © 2024 불법웹툰대응센터. All rights reserved.
+            © 2024 그림지기. All rights reserved.
           </p>
           <div className="flex flex-col items-center mt-4 space-y-2">
             <p className="text-sm text-gray-500">
-              본 사이트는 웹툰/웹소설 저작권 보호를 위한 비영리 프로젝트입니다.
+              본 사이트는 웹툰 저작권 보호를 위해 시작된 비영리 프로젝트입니다.
             </p>
             <div className="flex items-center space-x-2 text-sm text-gray-500">
               <span>경기도 갭이어 프로젝트 플러스+의 일환으로 제작되었습니다.</span>

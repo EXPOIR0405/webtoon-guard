@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import './OneStopService.css';
 import CareerStageService from '../CareerStageService';
+import LegalSupport from '../../app/LegalSupport';
 
 const OneStopService = () => {
   const [activeTab, setActiveTab] = useState('onestop');
@@ -47,7 +48,7 @@ const OneStopService = () => {
     {
       id: 7,
       title: "성폭력ㆍ성희롱 신고",
-      description: "예술활동 중 성희롱, 성폭력을 겪으셨나요? 이곳에서 신고절차를 확인하고 신고할 수 있습니다. 더불어 법률상담, 소송지원(민형사), 심리상담, 의료비지원 등을 신청할 수 있습니다.",
+      description: "예술활동 중 성희롱, 성폭력을 겪으셨나요? 이곳에서 신고절차를 확인하고 신고할 수 있습니다. 더불어 여러 지원 서비스를 신청할 수 있습니다.",
       link: "https://sinmungo.kawf.kr/user/intro/artDamageReport/list.do"
     },
     {
@@ -82,17 +83,6 @@ const OneStopService = () => {
     }
   ];
 
-  const legalServices = [
-    {
-      id: 1,
-      organization: "한국콘텐츠진흥원",
-      website: "www.kcdrc.kr",
-      contact: "전화 온라인",
-      phone: "1588-2594",
-      services: ["진문가로 구성된 분쟁해결", "콘텐츠 거래 분쟁 조정"]
-    }
-  ];
-
   return (
     <div className="onestop-container">
       <h1 className="onestop-title">원스톱 서비스</h1>
@@ -114,7 +104,7 @@ const OneStopService = () => {
           className={activeTab === 'etc' ? 'active' : ''} 
           onClick={() => setActiveTab('etc')}
         >
-          공모전
+          기관별 상담 지원
         </button>
       </div>
 
@@ -130,12 +120,8 @@ const OneStopService = () => {
         <CareerStageService />
       )}
 
-      {activeTab === 'legal' && (
-        <div className="legal-services-grid">
-          {legalServices.map((org) => (
-            <LegalServiceCard key={org.id} {...org} />
-          ))}
-        </div>
+      {activeTab === 'etc' && (
+        <LegalSupport />
       )}
     </div>
   );
@@ -174,22 +160,6 @@ const ServiceCard = ({ title, description, requirements, link, fileDownload }) =
           계약서 다운로드
         </a>
       )}
-    </div>
-  );
-};
-
-const LegalServiceCard = ({ organization, website, contact, phone, services }) => {
-  return (
-    <div className="legal-service-card">
-      <h3>{organization}</h3>
-      <p>웹사이트: {website}</p>
-      <p>연락처: {contact}</p>
-      <p>전화번호: {phone}</p>
-      <ul>
-        {services.map((service) => (
-          <li key={service}>{service}</li>
-        ))}
-      </ul>
     </div>
   );
 };

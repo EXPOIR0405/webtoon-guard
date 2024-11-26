@@ -144,3 +144,42 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+.description {
+  color: #000000;  /* 설명 문구 색상 */
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.date-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.date {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.deadline-badge {
+  background-color: #dc3545;  /* 빨간색 배경 */
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.apply-button.disabled {
+  background-color: #ccc;  /* 비활성화된 버튼 색상 */
+  cursor: not-allowed;
+}
+
+.apply-button.disabled:hover {
+  background-color: #ccc;
+  transform: none;
+  box-shadow: none;
+}

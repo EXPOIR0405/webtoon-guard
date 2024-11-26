@@ -36,12 +36,12 @@ export default function ErrorForm() {
         errorDescription: '',
         userEmail: ''
       });
-      alert('오류가 성공적으로 접수되었습니다.');
+      alert('의견이 성공적으로 접수되었습니다.');
 
     } catch (error) {
       console.error('전송 오류:', error);
       setSubmitStatus('error');
-      alert('오류 접수에 실패했습니다. 다시 시도해주세요.');
+      alert('접수에 실패했습니다. 다시 시도해주세요.');
 
     } finally {
       setIsSubmitting(false);
@@ -50,10 +50,10 @@ export default function ErrorForm() {
 
   return (
     <div className={styles.formContainer}>
-      <h2>오류 신고</h2>
+      <h2>콘텐츠 제안 / 오류 신고</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.formGroup}>
-          <label htmlFor="errorType">오류 유형</label>
+          <label htmlFor="errorType">제안 / 오류 유형</label>
           <select 
             id="errorType" 
             value={formData.errorType}
@@ -63,6 +63,7 @@ export default function ErrorForm() {
             <option value="">유형을 선택해주세요</option>
             <option value="content">콘텐츠 오류</option>
             <option value="system">시스템 오류</option>
+            <option value="suggestion">콘텐츠 제안</option>
             <option value="other">기타</option>
           </select>
         </div>
@@ -73,7 +74,7 @@ export default function ErrorForm() {
             id="errorDescription"
             value={formData.errorDescription}
             onChange={(e) => setFormData({...formData, errorDescription: e.target.value})}
-            placeholder="발생한 문제에 대해 자세히 설명해주세요."
+            placeholder="발생한 문제(or 제안)에 대해 자세히 설명해주세요."
             required
           />
         </div>
@@ -100,7 +101,7 @@ export default function ErrorForm() {
 
         {submitStatus === 'success' && (
           <p className={styles.successMessage}>
-            성공적으로 전송되었습니다.
+            성공적으로 전송되었습니다. 메일 확인 후 답변 드리겠습니다.
           </p>
         )}
         
