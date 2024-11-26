@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="ko">
-      <body>
+      <body className="bg-white">
         <Navigation />
         <main className="min-h-screen">
           {children}

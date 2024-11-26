@@ -1,0 +1,153 @@
+.onestop-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.onestop-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  position: relative;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: #1a6dff;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #000;
+  font-weight: 600;
+}
+
+.service-card p {
+  color: #333;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.service-card a {
+  color: #1a6dff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tab-menu {
+  display: flex;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-menu button {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-menu button.active {
+  color: #1a6dff;
+  font-weight: 500;
+}
+
+.tab-menu button.active:after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #1a6dff;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1a6dff;
+  margin-top: 1rem;
+}
+
+.service-card .apply-button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  background: #1a6dff;
+  color: #fff !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  font-weight: 500;
+}
+
+.service-card .apply-button:hover {
+  background: #1557cc;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 15px rgba(26, 109, 255, 0.3);
+}
+
+.service-card:hover h3 {
+  color: #1a6dff;
+  transition: color 0.3s ease;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-menu {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+.download-button {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  background: #28a745;  /* 다운로드 버튼은 초록색으로 구분 */
+  color: #fff !important;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.download-button:hover {
+  background: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+}

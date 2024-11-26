@@ -56,8 +56,8 @@ export default function Navigation() {
                 <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   불법 운영자 명단
                 </Link>
-                <Link href="#service" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  웹툰 저작권 보호 서비스
+                <Link href="/copyright-guide" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  웹툰 저작권 보호 가이드
                 </Link>
                 <Link href="#report" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   피해 신고 작성
@@ -87,8 +87,8 @@ export default function Navigation() {
               <Link href="/hall-of-shame" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
                 불법 운영자 명단
               </Link>
-              <Link href="#service" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                웹툰 저작권 보호 서비스
+              <Link href="/copyright-guide" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                웹툰 저작권 보호 가이드
               </Link>
               <Link href="#report" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
                 피해 신고 작성
