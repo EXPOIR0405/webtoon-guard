@@ -1,5 +1,9 @@
-import CopyrightGuide from '@/components/CopyrightGuide';
+import { CopyrightGuide as CopyrightGuideComponent } from '@/components/CopyrightGuide';
 
 export default function Page() {
-  return <CopyrightGuide />;
+  return (
+    <div>
+      <CopyrightGuideComponent />
+    </div>
+  );
 }
