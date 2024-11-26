@@ -29,8 +29,8 @@ const OneStopService = () => {
     {
       id: 4,
       title: "저작권 관련 직접 상담",
-      description: "챗봇 서비스 이외에 대면, 비대면 상담 서비스를 제공하고 있습니다. 아래 창을 눌러주세요!", 
-      link: "https://chatbot.gov.kt-aicc.com/client/GCL-01-C-00000221-0001/chat.html"
+      description: "챗봇 서비스 이외에 온라인, 비대면 상담 서비스를 제공하고 있습니다. 아래 창을 눌러주세요!", 
+      link: "https://www.copyright.or.kr/business/counsel/law/write.do#none"
     },
     {
       id: 5,
@@ -47,14 +47,14 @@ const OneStopService = () => {
     {
       id: 7,
       title: "성폭력ㆍ성희롱 신고",
-      description: "예술활동 중 성희롱, 성폭력을 겪으셨나요? 이곳에서 신고절차를 확인하고 신고할 수 있습니다.(로그인 필수)",
+      description: "예술활동 중 성희롱, 성폭력을 겪으셨나요? 이곳에서 신고절차를 확인하고 신고할 수 있습니다. 더불어 법률상담, 소송지원(민형사), 심리상담, 의료비지원 등을 신청할 수 있습니다.",
       link: "https://sinmungo.kawf.kr/user/intro/artDamageReport/list.do"
     },
     {
       id: 8,
-      title: "성폭력 성희롱 상담",
-      description: "성폭력 성희롱 관련해 상담을 받고 싶으시다면? 이곳에서 상담을 받을 수 있습니다.(로그인 필수)",
-      link: "https://sinmungo.kawf.kr/user/intro/sexDamageCounsel/list.do"
+      title: "서면계약 위반 신고",
+      description: "계약은 반드시 서면으로 체결해야한다는 것 알고 계셨나요? 이를 위반하는 경우 이곳에서 신고할 수 있습니다.",
+      link: "https://sinmungo.kawf.kr/user/intro/writeContractViolate/list.do"
     },
     {
       id: 9,
@@ -102,13 +102,13 @@ const OneStopService = () => {
           className={activeTab === 'onestop' ? 'active' : ''} 
           onClick={() => setActiveTab('onestop')}
         >
-          원스톱
+          종합정보
         </button>
         <button 
           className={activeTab === 'career' ? 'active' : ''} 
           onClick={() => setActiveTab('career')}
         >
-          직종별 정보
+          직종별 지원 정보
         </button>
         <button 
           className={activeTab === 'etc' ? 'active' : ''} 

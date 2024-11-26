@@ -54,27 +54,21 @@ export default function Navigation() {
                 }`}
               >
                 <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  불법 운영자 명단
-                </Link>
-                <Link href="/copyright-guide" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  웹툰 저작권 보호 가이드
-                </Link>
-                <Link href="#report" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  피해 신고 작성
+                  불법 사이트 운영자 명예의 전당
                 </Link>
                 <Link href="#consultation" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  법률 상담
+                  법률 상담 지원처
                 </Link>
               </div>
             </div>
 
-            <Link href="#guide" className="text-black hover:text-blue-600">
+            {/* <Link href="#guide" className="text-black hover:text-blue-600">
               이용가이드
-            </Link>
+            </Link> */}
             <Link href="/legal" className="text-black hover:text-blue-600">
               자주 묻는 질문
             </Link>
-            <Link href="#contact" className="text-black hover:text-blue-600">
+            <Link href="/inquiry" className="text-black hover:text-blue-600">
               문의하기
             </Link>
           </div>

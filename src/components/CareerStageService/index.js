@@ -11,11 +11,10 @@ const CareerStageService = () => {
       title: '웹툰 작가 지망생',
       image: '/aspirant.png',
       supports: [
-        {
-          title: '예방접종증명 신청',
-          description: '감염병에 걸리지 않도록 규정된 4가지 예방접종 증명서를 온라인으로 신청할 수 있는 서비스입니다.',
-          link: '/apply/vaccination'
-        },
+        // {
+        //   title: '예방접종증명 신청',
+        //   description: '감염병에 걸리지 않도록 규정된 4가지 예방접종 증명서를 온라인으로 신청할 수 있는 서비스입니다.',
+        // },
         // ... 다른 지원 정보들
       ]
     },
