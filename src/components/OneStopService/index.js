@@ -12,13 +12,13 @@ const OneStopService = () => {
     {
       id: 1,
       title: "저작권 침해 신고",
-      description: "불법 복제, 무단 전재 등으로 피해를 입으셨나요? 저작권 침해가 되었다는 사실을 이곳에서 신고할 수 있습니다.",
+      description: "불법 복제, 무단 전재 등으로 피해를 입으셨나요? 저작권 침해가 되었다면 이곳에서 신고할 수 있습니다.",
       link: "https://copy112.kcopa.or.kr/unlaw/unlawOnline.do#"
     },
     {
       id: 2,
       title: "계약서 작성 검토", 
-      description: "계약서 검토를 및 자문을 받고 싶으신가요? 저작권 침해, 불공정 거래, 대금 체불 등 법적 문제에 대해 상담해드립니다.",
+      description: "계약서 검토 및 자문을 받고 싶으신가요? 저작권 침해, 불공정 거래, 대금 체불 등 법적 문제에 대해 상담해드립니다.",
       link: "https://sftc.seoul.go.kr/fe/ca/cnslt/NR_list.do"
     },
     {
@@ -42,7 +42,7 @@ const OneStopService = () => {
     {
       id: 6,
       title: "권리침해 신고",
-      description: "권리침해 관련해 신고를 하고 싶으시다면? 이곳에서 신고할 수 있습니다.(로그인 필수)",
+      description: "권리침해 관련해 신고를 하고 싶으시다면? 이곳에서 신고할 수 있습니다.",
       link: "https://sinmungo.kawf.kr/user/intro/artInfri/list.do"
     },
     {
@@ -60,7 +60,7 @@ const OneStopService = () => {
     {
       id: 9,
       title: "저작권 분쟁 조정",
-      description: "저작권 분쟁을 겪고 계신가요? 소송에 들어가기 전, 조정을 받을 수 있습니다. 이곳에서 확인해보세요.(로그인 필수)",
+      description: "저작권 분쟁을 겪고 계신가요? 소송에 들어가기 전, 조정을 받을 수 있습니다. 이곳에서 확인해보세요.",
       link: "https://adr.copyright.or.kr/web/main/mainPage.do"
     },
     {

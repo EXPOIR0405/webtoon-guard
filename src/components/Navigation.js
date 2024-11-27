@@ -52,6 +52,9 @@ export default function Navigation() {
                   isDropdownOpen ? 'block' : 'hidden'
                 }`}
               >
+                <Link href="/" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  원스톱 서비스
+                </Link>
                 <Link href="/about" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   그림지기 소개
                 </Link>
@@ -80,8 +83,11 @@ export default function Navigation() {
         <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`}>
           <div className="px-2 pt-2 pb-3 space-y-1">
             <div className="space-y-1">
-              <Link href="/hall-of-shame" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                명예의 전당
+              <Link href="/" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                원스톱 서비스
+              </Link>
+              <Link href="/about" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                그림지기 소개
               </Link>
               <Link href="/LegalSupport" className="block px-3 py-2 text-black hover:bg-blue-50 hover:text-blue-600 rounded-md">
                 법률 상담
