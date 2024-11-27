@@ -43,7 +43,7 @@ const legalOrganizations = {
           phone: {
             available: true,
             number: "02-3668-0200",
-            hours: "평일 9:00 - 17:00"
+            hours: "평일 9:00 - 18:00"
           },
           visit: {
             available: true,
@@ -53,7 +53,7 @@ const legalOrganizations = {
           online: {
             available: true,
             platform: "상담신청 게시판",
-            url: "https://www.kocca.kr/cop/bbs/list/B0000141.do"
+            url: "https://www.kawfartist.kr/hkor/no/no02/consultUser/list.do"
           }
         },
         supportTypes: [
@@ -61,7 +61,7 @@ const legalOrganizations = {
           "저작권 분쟁",
           "계약 및 저작권 법률상담"
         ],
-        website: "https://www.kocca.kr"
+        website: "https://www.kawfartist.kr/hkor/userMain/hkorMain.do?sso=ok"
       },
       {
         id: 3,
@@ -133,7 +133,7 @@ const legalOrganizations = {
           phone: {
             available: true,
             number: "032-655-1120/ 032-310-3084",
-            hours: "평일 10:00 - 12:00, 13:00 - 17:00"
+            hours: "평일 10:00 - 12:00, 13:00 - 16:00"
           },
           visit: {
             available: true,
@@ -195,7 +195,7 @@ const legalOrganizations = {
           phone: {
             available: true,
             number: "02-3668-0266",
-            hours: "평일 10:00 - 17:00 (점심시간 12:00 - 13:00)"
+            hours: "평일 10:00 - 18:00 (점심시간 12:00 - 13:00)"
           },
           visit: {
             available: true,
@@ -228,7 +228,7 @@ const legalOrganizations = {
         description: "창작자의 권익 보호 및 작품 활동 지원하는 협회",
         services: {
           phone: {
-            available: true,
+            available: false,
             number: "02-757-8485~7",
             hours: "평일 09:00 - 12:00, 13:00 - 18:00"
           },
@@ -240,7 +240,8 @@ const legalOrganizations = {
             reservation: true
           },
           online: {
-            available: false
+            available: true,
+            email: "coreamanhwa@cartoon.or.kr"  
           }
         },
         supportTypes: [
@@ -252,28 +253,31 @@ const legalOrganizations = {
       },
       {
         id: 10,
-        name: "(사)한국웹툰작가협회",
-        description: "공정계약, 불공정 노동행위, 계약분쟁 대응절차 등을 지원하는 협회",
+        name: "대한법률구조공단",
+        description: "경제적으로 어렵거나 법률지식이 부족해 법의 보호를 충분히 받지 못하는 국민의 기본적 인권 옹호를 위해 법률상담, 소송대리 및 형사변호 등의 법률서비스를 지원하는 사회복지 제공 시설",
         services: {
           phone: {
             available: true,
-            number: "02-757-8487",
-            hours: "평일 09:00 - 18:00" // 확인 필요
+            number: "132",
+            hours: "평일 09:00 - 18:00"
           },
           visit: {
-            available: false,
-            location: "서울특별시 마포구 양화로 156 LG팰리스",
-            reservation: false,
+            available: true,
+            location: "각 시도별 예약 및 대면상담 가능",
+            reservation: true,
           },
           online: {
-            available: false
+            available: true,
+            platform: "온라인 상담",
+            url: "https://www.klac.or.kr/legalstruct/cyberConsultation.do"
           }
         },
         supportTypes: [
-          "계약 관련 상담",
-          "노동 관련 상담"
+          "소송 지원",
+          "소장 대리",
+          "무료 법률서비스",
         ],
-        website: "http://coreawebtoon.or.kr/wp/"
+        website: "https://www.klac.or.kr/"
       },
     ]
   }
@@ -335,15 +339,32 @@ function LegalSupport() {
                       <div className={styles['status-details']}>
                         <p>
                           💻{' '}
-                          <a
-                            href={org.services.online.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles['online-link']}
-                          >
-                            {org.services.online.platform}
-                          </a>
+                          {org.services.online.email ? (
+                            <>
+                              <span>이메일 상담:</span>{' '}
+                              <a
+                                href={`mailto:${org.services.online.email}`}
+                                className={styles['online-link']}
+                              >
+                                {org.services.online.email}
+                              </a>
+                            </>
+                          ) : (
+                            <a
+                              href={org.services.online.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles['online-link']}
+                            >
+                              {org.services.online.platform}
+                            </a>
+                          )}
                         </p>
+                        {org.services.online.email && (
+                          <p className={styles['email-description']}>
+                            ℹ️ 이메일로 문의하시면 담당자가 확인 후 답변드립니다
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>

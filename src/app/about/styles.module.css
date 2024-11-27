@@ -259,3 +259,398 @@
 .closeButton:hover {
   background: rgba(0, 0, 0, 0.7);
 }
+
+.introSection {
+  min-height: 100vh;
+  background: url('/pasu2.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+  padding: 4rem 0;
+}
+
+.introSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.introContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.missionStatement {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.missionStatement h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.purposeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.purposeCard {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.purposeCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2563eb;
+}
+
+.visionStatement {
+  text-align: center;
+  margin-top: 4rem;
+  max-width: 800px;
+  margin: 4rem auto 0;
+}
+
+.visionStatement h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.visionStatement p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.emphasis {
+  font-size: 1.4rem !important;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.quotesContainer {
+  margin: 4rem 0;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quoteLeft, .quoteRight {
+  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: fadeInLeft 0.5s ease forwards;
+  width: 60%;
+}
+
+.quoteRight {
+  margin-left: auto;
+  transform: translateX(50px);
+  animation: fadeInRight 0.5s ease forwards;
+}
+
+/* 각 인용구에 딜레이 추가 */
+.quoteLeft:nth-child(1) { animation-delay: 0.2s; }
+.quoteRight:nth-child(2) { animation-delay: 0.4s; }
+.quoteLeft:nth-child(3) { animation-delay: 0.6s; }
+.quoteRight:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 강조 문구는 마지막에 페이드인 */
+.emphasis {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.teamSection {
+  min-height: 100vh;
+  background: url('/forest.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+  padding: 4rem 0;
+}
+
+.teamSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.teamContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.teamContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.storyBox {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 800px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.valueGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+}
+
+.valueCard {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2563eb;
+}
+
+.faqSection {
+  max-width: 800px;
+  margin: 4rem auto;
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 2rem;
+  border-radius: 16px;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  z-index: 101;
+}
+
+.faqItem {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.faqQuestion {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.faqQuestion h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.faqArrow {
+  /* transition 제거 */
+  /* transition: transform 0.3s ease; */
+}
+
+.faqItem[data-active="true"] .faqArrow {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 1.5rem 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+
+.closingMessage {
+  text-align: center;
+  margin: 4rem 0;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 반응형 디자인을 위한 미디어 쿼리 */
+@media (max-width: 768px) {
+  .teamContent {
+    padding: 0 1rem;
+  }
+
+  .teamContent h2 {
+    font-size: 2rem;
+  }
+
+  .valueGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .storyBox {
+    font-size: 1.1rem;
+  }
+
+  .faqQuestion h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.developerQuote {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.developerQuote::before {
+  content: '"';
+  font-size: 4rem;
+  position: absolute;
+  left: -1rem;
+  top: -1rem;
+  color: #2563eb;
+  opacity: 0.6;
+}
+
+.smallNote {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-align: right;
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+.valueCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, transparent 50%, rgba(37, 99, 235, 0.1) 50%);
+  border-radius: 0 0 12px 0;
+}
+
+.valueCard:hover::after {
+  background: linear-gradient(135deg, transparent 50%, rgba(37, 99, 235, 0.2) 50%);
+}
+
+.profileContainer {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profileImage:hover {
+  transform: scale(1.05);
+}
+
+.profileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
