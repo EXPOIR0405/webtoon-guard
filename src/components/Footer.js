@@ -21,11 +21,6 @@ export default function Footer() {
             <h4 className="text-sm font-semibold text-gray-900 mb-4">서비스</h4>
             <ul className="space-y-3">
               <li>
-                <Link href="/hall-of-shame" className="text-gray-600 hover:text-blue-600">
-                  명예의 전당
-                </Link>
-              </li>
-              <li>
                 <Link href="/legal" className="text-gray-600 hover:text-blue-600">
                   자주 묻는 질문
                 </Link>

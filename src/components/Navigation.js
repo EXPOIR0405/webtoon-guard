@@ -52,15 +52,15 @@ export default function Navigation() {
                   isDropdownOpen ? 'block' : 'hidden'
                 }`}
               >
-                <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  불법 사이트 운영자 명예의 전당
-                </Link>
                 <Link href="/about" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   그림지기 소개
                 </Link>
                 <Link href="/LegalSupport" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   법률 상담
                 </Link>
+                {/* <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  불법 사이트 운영자 명예의 전당
+                </Link> */}
               </div>
             </div>
 
