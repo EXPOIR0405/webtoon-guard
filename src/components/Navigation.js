@@ -9,7 +9,7 @@ export default function Navigation() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b z-50">
+    <nav className="bg-white border-b z-[100] fixed w-full top-0">
       <div className="container mx-auto pl-2 pr-6">
         <div className="flex justify-between items-center h-16">
           {/* 로고 영역 */}
@@ -47,24 +47,20 @@ export default function Navigation() {
                 </svg>
               </button>
 
-              {/* 드롭다운 메뉴 */}
               <div 
-                className={`absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg py-2 transform transition-all duration-200 ${
-                  isDropdownOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+                className={`absolute top-full left-0 w-56 bg-white shadow-lg rounded-lg py-2 z-[101] ${
+                  isDropdownOpen ? 'block' : 'hidden'
                 }`}
               >
                 <Link href="/hall-of-shame" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   불법 사이트 운영자 명예의 전당
                 </Link>
-                <Link href="#contest" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  공모전 소식
+                <Link href="/about" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
+                  그림지기 소개
                 </Link>
                 <Link href="/LegalSupport" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
                   법률 상담
                 </Link>
-                {/* <Link href="/webtoon-form" className="block px-4 py-2 text-sm text-black hover:bg-blue-50 hover:text-blue-600">
-                  피해사실 정리서 작성
-                </Link> */}
               </div>
             </div>
 

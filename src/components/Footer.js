@@ -31,9 +31,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* <Link href="#report" className="text-gray-600 hover:text-blue-600">
-                  
-                </Link> */}
+                <Link href="/LegalSupport" className="text-gray-600 hover:text-blue-600">
+                  기관별 상담 서비스
+                </Link>
               </li>
             </ul>
           </div>
