@@ -33,7 +33,7 @@ export default function About() {
               <Link href="/LegalSupport" className={styles.serviceCard}>
                 <div>
                   <h3>📝 법률 상담 지원 정보</h3>
-                  <p>"지금 당장 법률 상담이 필요해요!"<br/>
+                  <p>&ldquo;지금 당장 법률 상담이 필요해요!&rdquo;<br/>
                     걱정마세요, 어떤 내용의 법률 정보가 필요한지 모아두었어요</p>
                 </div>
               </Link>
@@ -90,16 +90,16 @@ export default function About() {
               
               <div className={styles.quotesContainer}>
                 <div className={styles.quoteLeft}>
-                  "내 작품이 불법 유통되고 있대요..."
+                  &ldquo;내 작품이 불법 유통되고 있대요...&rdquo;
                 </div>
                 <div className={styles.quoteRight}>
-                  "어떻게 대응해야 할지 모르겠어요..."
+                  &ldquo;어떻게 대응해야 할지 모르겠어요...&rdquo;
                 </div>
                 <div className={styles.quoteLeft}>
-                  "혼자서는 너무 막막해요..."
+                  &ldquo;혼자서는 너무 막막해요...&rdquo;
                 </div>
                 <div className={styles.quoteRight}>
-                  "누가 좀 도와주면 안되나요? 😭"
+                  &ldquo;누가 좀 도와주면 안되나요? 😭&rdquo;
                 </div>
               </div>
 
@@ -141,10 +141,10 @@ export default function About() {
             </div>
             <div className={styles.storyBox}>
               <p className={styles.developerQuote}>
-                "안녕하세요, 개발자입니다 👋<br/>
+                &ldquo;안녕하세요, 개발자입니다 👋<br/>
                 네... 혼자예요... (눈물)<br/>
                 하지만 웹툰에 대해 생각하는게<br/>
-                제 인생을 곱씹어보는 것보다 의미있었어요"
+                제 인생을 곱씹어보는 것보다 의미있었어요&rdquo;
               </p>
              <p className={styles.smallNote}>
                 * 실제 개발자의 독백입니다

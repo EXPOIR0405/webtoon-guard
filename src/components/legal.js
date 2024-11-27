@@ -43,11 +43,11 @@ const FAQPage = () => {
           <input
             type="text"
             placeholder="궁금한게 있으신가요? 검색해보세요."
-            className="w-full py-3 pl-12 pr-4 text-gray-900 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full py-3 pr-12 pl-4 text-gray-900 border rounded-lg focus:outline-none focus:border-blue-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+          <Search className="absolute right-4 top-3.5 h-5 w-5 text-gray-400" />
         </div>
         <div className="flex flex-col md:flex-row">
           <aside className="w-full md:w-1/4 pr-0 md:pr-8 mb-6 md:mb-0">
