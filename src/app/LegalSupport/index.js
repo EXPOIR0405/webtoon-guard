@@ -37,7 +37,7 @@ const legalOrganizations = {
       },
       {
         id: 2,
-        name: "예술인 신문고",
+        name: "예술인복지재단 (예술인 신문고)",
         description: "예술 활동 관련 불공정 행위 피해구제 및 분쟁 조정, 법률 상담 등을 지원합니다.",
         services: {
           phone: {
@@ -189,7 +189,7 @@ const legalOrganizations = {
       },
       {
         id: 7,
-        name: "예술인 신문고",
+        name: "예술인복지재단 (예술인 신문고)",
         description: "예술인 권익 보호 및 분쟁 조정 지원",
         services: {
           phone: {
