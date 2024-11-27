@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Script from 'next/script'
 
+
 export default function RootLayout({ children }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
