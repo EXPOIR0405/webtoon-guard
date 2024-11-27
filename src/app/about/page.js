@@ -52,13 +52,14 @@ export default function About() {
                 시작하기
               </Link>
               
+              {/* 양피지 임시 주석처리
               {showScroll && (
                 <Link href="/inquiry" className={styles.scrollButton}>
                   <div className={styles.scrollContainer}>
                     <button 
                       className={styles.closeButton}
                       onClick={(e) => {
-                        e.preventDefault(); // Link 이동 방지
+                        e.preventDefault();
                         setShowScroll(false);
                       }}
                     >
@@ -79,6 +80,7 @@ export default function About() {
                   </div>
                 </Link>
               )}
+              */}
             </div>
           </div>
         </div>
