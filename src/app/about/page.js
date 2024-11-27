@@ -73,7 +73,7 @@ export default function About() {
                     />
                     <div className={styles.scrollContent}>
                       <h4>숲지기에게 전언 남기기</h4>
-                      <p>당신의 목소가 <br/>
+                      <p>당신의 목소리가 <br/>
                       그림지기를 더 풍요롭게 합니다<br/>새로운 의견을 들려주세요</p>
                     </div>
                   </div>
@@ -103,18 +103,15 @@ export default function About() {
                 </div>
               </div>
 
-              <p className={styles.emphasis}>
-                이런 이야기들을 듣다 보니,<br/>
-                '뭔가 해볼 수 있지 않을까' 싶었습니다.
-              </p>
+        
             </div>
 
             <div className={styles.purposeGrid}>
               <div className={styles.purposeCard}>
                 <h3>🛡️ 든든한 파수꾼</h3>
-                <p>더이상 정보 찾기는 그만!.<br/>
+                <p>더이상 막막한 정보 찾기는 그만!.<br/>
                 N이버 지식인 남부럽지 않을 만큼 필요한 정보만 확실히!<br/>
-                (믿음직스럽진 않지만 열심히 했어요)</p>
+                </p>
               </div>
 
               <div className={styles.purposeCard}>
