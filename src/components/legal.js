@@ -5,23 +5,24 @@ import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
 import { faqData } from '../data/faqData';
 
-
 const FAQPage = () => {
+  // 상태 관리
   const [activeCategory, setActiveCategory] = useState('저작권 관련 질문');
   const [searchTerm, setSearchTerm] = useState('');
-  const categories = ['저작권 관련 질문', '계약 관련 질문', '기타 사례',];
-  const faqs = faqData;
+  const categories = ['저작권 관련 질문', '계약 관련 질문', '기타 사례'];
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
-  const filteredFAQs = (faqs[activeCategory] || []).filter(faq =>
+  // FAQ 필터링 로직
+  const filteredFAQs = (faqData[activeCategory] || []).filter(faq =>
     faq.q.includes(searchTerm) || faq.a.includes(searchTerm)
   );
 
-  const allFilteredFAQs = Object.values(faqs).flat().filter(faq =>
+  const allFilteredFAQs = Object.values(faqData).flat().filter(faq =>
     faq.q.includes(searchTerm) || faq.a.includes(searchTerm)
   );
 
+  // 페이지네이션 로직
   const getFAQsForCurrentPage = (faqs) => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
@@ -34,11 +35,12 @@ const FAQPage = () => {
   return (
     <div className="min-h-screen bg-white">
       <header className="bg-white border-b">
-
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
         <h2 className="text-3xl font-bold mb-8 text-black">자주 묻는 질문</h2>
+        
+        {/* 검색 입력 필드 */}
         <div className="relative mb-8">
           <input
             type="text"
@@ -49,7 +51,9 @@ const FAQPage = () => {
           />
           <Search className="absolute right-4 top-3.5 h-5 w-5 text-gray-400" />
         </div>
+
         <div className="flex flex-col md:flex-row">
+          {/* 카테고리 사이드바 */}
           <aside className="w-full md:w-1/4 pr-0 md:pr-8 mb-6 md:mb-0">
             <ul className="flex flex-wrap md:flex-col">
               {categories.map(category => (
@@ -66,6 +70,8 @@ const FAQPage = () => {
               ))}
             </ul>
           </aside>
+
+          {/* FAQ 목록 */}
           <div className="w-full md:w-3/4">
             {currentFAQs.map((faq, index) => (
               <div key={index} className="mb-6 border-b pb-6">
@@ -86,6 +92,7 @@ const FAQPage = () => {
               </div>
             ))}
             
+            {/* 페이지네이션 */}
             {totalPages > 1 && (
               <div className="flex justify-center items-center space-x-4 mt-8">
                 <button
