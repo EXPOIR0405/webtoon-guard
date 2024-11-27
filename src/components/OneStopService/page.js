@@ -1,4 +1,4 @@
-import OneStopService from '@/components/OneStopService/OnestopserviceClient'
+import OnestopserviceClient from './OnestopserviceClient'
 
 export const metadata = {
   title: '그림지기 | 웹툰 작가를 위한 원스톱 법률 지원 서비스',
@@ -10,7 +10,7 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/pasu2.png',
+        url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: '그림지기 원스톱 서비스',
@@ -19,6 +19,6 @@ export const metadata = {
   }
 };
 
-export default function Home() {
-  return <OneStopService />
+export default function Onestopservice() {
+  return <OnestopserviceClient />
 }
