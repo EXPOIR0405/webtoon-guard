@@ -13,9 +13,16 @@ const FAQPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 10;
 
+  // 카테고리 변경 시 페이지 리셋
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+    setCurrentPage(1);  // 페이지를 1로 리셋
+  };
+
   // FAQ 필터링 로직
   const filteredFAQs = (faqData[activeCategory] || []).filter(faq =>
-    faq.q.includes(searchTerm) || faq.a.includes(searchTerm)
+    faq.q.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    faq.a.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   const allFilteredFAQs = Object.values(faqData).flat().filter(faq =>
@@ -59,7 +66,7 @@ const FAQPage = () => {
               {categories.map(category => (
                 <li key={category} className="mb-2 w-1/2 md:w-full">
                   <button
-                    onClick={() => setActiveCategory(category)}
+                    onClick={() => handleCategoryChange(category)}
                     className={`text-left w-full py-2 px-4 rounded ${
                       activeCategory === category ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-gray-100'
                     }`}
@@ -74,18 +81,19 @@ const FAQPage = () => {
           {/* FAQ 목록 */}
           <div className="w-full md:w-3/4">
             {currentFAQs.map((faq, index) => (
-              <div key={index} className="mb-6 border-b pb-6">
+              <div key={`${activeCategory}-${index}`} className="mb-6 border-b pb-6">
                 <h3 
                   className="text-base md:text-lg font-medium text-gray-900 mb-2 cursor-pointer" 
                   onClick={() => {
-                    const answerElement = document.getElementById(`answer-${index}`);
+                    const answerId = `answer-${activeCategory}-${index}`;
+                    const answerElement = document.getElementById(answerId);
                     answerElement.classList.toggle('hidden');
                   }}
                 >
                   {faq.q}
                 </h3>
                 <p 
-                  id={`answer-${index}`} 
+                  id={`answer-${activeCategory}-${index}`} 
                   className="text-gray-600 hidden"
                   dangerouslySetInnerHTML={{ __html: faq.a }}
                 ></p>
