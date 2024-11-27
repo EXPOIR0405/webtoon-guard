@@ -4,12 +4,31 @@ import ChatBot from '@/components/ChatBot';
 import "./globals.css";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import Script from 'next/script'
 
 export default function RootLayout({ children }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
     <html lang="ko">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-7TZQL660PN`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-7TZQL660PN');
+          `}
+        </Script>
+      </head>
       <body className="bg-white">
         <Navigation />
         <main className="min-h-screen">
