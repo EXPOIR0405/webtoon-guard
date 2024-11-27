@@ -1,0 +1,132 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: linear-gradient(135deg, #f6f8ff 0%, #f0f4ff 100%);
+    overflow: hidden;
+  }
+  
+  .errorContent {
+    margin-top: 130px;
+    padding: 2rem;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .magicCircle {
+    position: relative;
+    display: inline-block;
+    padding: 2rem;
+  }
+  
+  .magicCircle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 2px solid #4a90e2;
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  
+  .title {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #2b2b2b;
+    margin: 0;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .magicZero {
+    display: inline-block;
+    color: #4a90e2;
+    animation: pulseGlow 2s infinite;
+  }
+  
+  .messageScroll {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .magicText {
+    display: block;
+    color: #4a90e2;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  
+  .imageContainer {
+    flex: 1;
+    position: relative;
+    min-height: 60vh;
+  }
+  
+  .magicParticles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 10% 20%, rgba(255,255,255,0.8) 1px, transparent 1px),
+      radial-gradient(circle at 80% 40%, rgba(255,255,255,0.8) 1px, transparent 1px),
+      radial-gradient(circle at 40% 60%, rgba(255,255,255,0.8) 1px, transparent 1px);
+    background-size: 100px 100px;
+    animation: particleFloat 20s linear infinite;
+  }
+  
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/404_nabi.png') center center no-repeat;
+    background-size: contain;
+  }
+  
+  .homeButton {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .homeButton:hover {
+    background-color: #357abd;
+  }
+  
+  @media (max-width: 768px) {
+    .title {
+      font-size: 4rem;
+    }
+    
+    .description {
+      font-size: 1rem;
+    }
+    
+    .imageContainer {
+      min-height: 40vh;
+    }
+  }
