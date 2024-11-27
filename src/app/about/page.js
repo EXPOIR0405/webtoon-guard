@@ -22,7 +22,7 @@ export default function About() {
             </p>
             
             <div className={styles.serviceGrid}>
-              <Link href="/support" className={styles.serviceCard}>
+              <Link href="/" className={styles.serviceCard}>
                 <div>
                   <h3>🏛️ 원스톱 종합 서비스 지원 안내</h3>
                   <p>여기저기 흩어진 정보들 다 모아왔어요.<br/>
