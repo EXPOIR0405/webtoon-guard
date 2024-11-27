@@ -53,7 +53,7 @@ export default function About() {
               </Link>
               
               {showScroll && (
-                <Link href="/contact" className={styles.scrollButton}>
+                <Link href="/inquiry" className={styles.scrollButton}>
                   <div className={styles.scrollContainer}>
                     <button 
                       className={styles.closeButton}
