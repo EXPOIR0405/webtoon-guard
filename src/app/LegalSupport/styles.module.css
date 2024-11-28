@@ -220,3 +220,114 @@
 .online-link:hover {
   border-bottom-color: currentColor;
 }
+
+.phone-info-wrapper {
+  position: relative;
+  cursor: help;
+}
+
+.phone-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: normal;
+  width: max-content;
+  max-width: 300px;
+  z-index: 10;
+}
+
+.phone-info-wrapper:hover .phone-tooltip {
+  visibility: visible;
+}
+
+.visit-info-wrapper {
+  position: relative;
+  cursor: help;
+}
+
+.visit-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: normal;
+  width: max-content;
+  max-width: 300px;
+  z-index: 10;
+  line-height: 1.4;
+}
+
+.visit-info-wrapper:hover .visit-tooltip {
+  visibility: visible;
+}
+
+.email-wrapper {
+  position: relative;
+  cursor: help;
+  display: inline-block;
+}
+
+.email-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.email-wrapper:hover .email-tooltip {
+  visibility: visible;
+}
+
+.email-description {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
+.support-type-item {
+  position: relative;
+  cursor: help;
+}
+
+.support-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background-color: #1f2937;
+  color: white;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  white-space: normal;
+  width: max-content;
+  max-width: 300px;
+  z-index: 10;
+}
+
+.support-type-item:hover .support-tooltip {
+  visibility: visible;
+}

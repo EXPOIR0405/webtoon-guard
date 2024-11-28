@@ -43,7 +43,7 @@ const legalOrganizations = {
           phone: {
             available: true,
             number: "02-3668-0200",
-            hours: "평일 9:00 - 18:00"
+            hours: "평일 09:00 - 18:00 (점심시간: 12:00 - 13:00)"
           },
           visit: {
             available: true,
@@ -195,7 +195,7 @@ const legalOrganizations = {
           phone: {
             available: true,
             number: "02-3668-0266",
-            hours: "평일 10:00 - 18:00 (점심시간 12:00 - 13:00)"
+            hours: "평일 10:00 - 17:00 (점심시간 12:00 - 13:00)"
           },
           visit: {
             available: true,
@@ -209,10 +209,10 @@ const legalOrganizations = {
           }
         },
         supportTypes: [
-          "성희롱/성폭력 피해 상담",
-          "의료비 지원",
-          "법률 상담",
-          "심리상담"
+          "법률지원",
+          "심리상담 지원",
+          "의료 지원",
+          "관련 전문기관 연계"
         ],
         website: "https://www.kawf.kr"
       }
@@ -317,7 +317,16 @@ function LegalSupport() {
                     <h4>전화상담 {getServiceStatusIcon(org.services.phone.available)}</h4>
                     {org.services.phone.available && (
                       <div className={styles['status-details']}>
-                        <p>📞 {org.services.phone.number}</p>
+                        {org.id === 2 ? (
+                          <p className={`${styles['phone-info-wrapper']} group`}>
+                            📞 {org.services.phone.number}
+                            <span className={`${styles['phone-tooltip']} invisible group-hover:visible`}>
+                              유선 상담은 면밀한 상담 진행을 위해 재단 담당자와 초기 상담(질의 내용 및 자료 확인 등) 후 컨설턴트 변호사님과 일정 선정하여 진행됩니다.(사전 일정 협의 필수)
+                            </span>
+                          </p>
+                        ) : (
+                          <p>📞 {org.services.phone.number}</p>
+                        )}
                         <p>⏰ {org.services.phone.hours}</p>
                       </div>
                     )}
@@ -327,8 +336,30 @@ function LegalSupport() {
                     <h4>대면상담 {getServiceStatusIcon(org.services.visit.available)}</h4>
                     {org.services.visit.available && (
                       <div className={styles['status-details']}>
-                        <p>📍 {org.services.visit.location}</p>
-                        <p>🔖 {org.services.visit.reservation ? "예약 필요" : "예약 불필요"}</p>
+                        {org.id === 2 ? (
+                          <div className={`${styles['visit-info-wrapper']} group`}>
+                            <p>📍 {org.services.visit.location}</p>
+                            <p>🔖 {org.services.visit.reservation ? "예약 필요" : "예약 불필요"}</p>
+                            <span className={`${styles['visit-tooltip']} invisible group-hover:visible`}>
+                              방문 상담의 경우 사전 예약이 필수이며, 유선 상담과 마찬가지로 담당자와 초기 상담(질의 내용 및 자료 확인 등) 후 변호사님과의 일정 선정 후 진행됩니다. (사전 일정 협의 및 예약 필수)
+                              <br />문의전화 : 02-3668-0200
+                            </span>
+                          </div>
+                        ) : org.id === 7 ? (
+                          <div className={`${styles['visit-info-wrapper']} group`}>
+                            <p>📍 {org.services.visit.location}</p>
+                            <p>🔖 {org.services.visit.reservation ? "예약 필요" : "예약 불필요"}</p>
+                            <span className={`${styles['visit-tooltip']} invisible group-hover:visible`}>
+                              재단 내 마련된 상담실에서 면접 상담원과 직접 상담 진행
+                              방문상담은 예약제로 진행됩니다.
+                            </span>
+                          </div>
+                        ) : (
+                          <>
+                            <p>📍 {org.services.visit.location}</p>
+                            <p>🔖 {org.services.visit.reservation ? "예약 필요" : "예약 불필요"}</p>
+                          </>
+                        )}
                       </div>
                     )}
                   </div>
@@ -337,19 +368,26 @@ function LegalSupport() {
                     <h4>온라인상담 {getServiceStatusIcon(org.services.online.available)}</h4>
                     {org.services.online.available && (
                       <div className={styles['status-details']}>
-                        <p>
-                          💻{' '}
-                          {org.services.online.email ? (
-                            <>
-                              <span>이메일 상담:</span>{' '}
-                              <a
-                                href={`mailto:${org.services.online.email}`}
-                                className={styles['online-link']}
-                              >
-                                {org.services.online.email}
-                              </a>
-                            </>
-                          ) : (
+                        {org.id === 7 ? (
+                          <>
+                            <p>💻 이메일: withu@kawf.kr</p>
+                            <p className={styles['email-description']}>
+                              7일 이내 회신을 통해 필요한 지원 안내 및 연계
+                            </p>
+                          </>
+                        ) : org.services.online.email ? (
+                          <p>
+                            💻 이메일 상담:{' '}
+                            <a
+                              href={`mailto:${org.services.online.email}`}
+                              className={styles['online-link']}
+                            >
+                              {org.services.online.email}
+                            </a>
+                          </p>
+                        ) : (
+                          <p>
+                            💻{' '}
                             <a
                               href={org.services.online.url}
                               target="_blank"
@@ -358,11 +396,6 @@ function LegalSupport() {
                             >
                               {org.services.online.platform}
                             </a>
-                          )}
-                        </p>
-                        {org.services.online.email && (
-                          <p className={styles['email-description']}>
-                            ℹ️ 이메일로 문의하시면 담당자가 확인 후 답변드립니다
                           </p>
                         )}
                       </div>
@@ -374,7 +407,25 @@ function LegalSupport() {
                   <h4>지원 내용</h4>
                   <ul>
                     {org.supportTypes?.map((type, index) => (
-                      <li key={index}>{type}</li>
+                      <li key={index} className={`${styles['support-type-item']} group`}>
+                        {type}
+                        {org.id === 7 && (
+                          <span className={`${styles['support-tooltip']} invisible group-hover:visible`}>
+                            {type === "법률지원" && 
+                              "전문 컨설턴트와의 성희롱·성폭력 피해에 대한 법률상담, 피해 관련 민·형사상 소송비용(심급별 지원)"
+                            }
+                            {type === "심리상담 지원" && 
+                              "성희롱·성폭력 피해 예술인의 심리적 안정을 위한 전문상담 및 심리치료"
+                            }
+                            {type === "의료 지원" && 
+                              "성희롱·성폭력 피해로 인한 신체적, 정신적 치료가 필요한 경우 의료비 지원"
+                            }
+                            {type === "관련 전문기관 연계" && 
+                              "피해자가 희망할 경우 유관기관 안내 연계"
+                            }
+                          </span>
+                        )}
+                      </li>
                     ))}
                   </ul>
                 </div>
