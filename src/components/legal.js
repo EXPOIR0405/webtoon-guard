@@ -45,7 +45,7 @@ const FAQPage = () => {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 py-8">
-        <h2 className="text-3xl font-bold mb-8 text-black">자주 묻는 질문</h2>
+        <h2 className="text-3xl font-bold mb-8 text-black mt-12">자주 묻는 질문</h2>
         
         {/* 검색 입력 필드 */}
         <div className="relative mb-8">
