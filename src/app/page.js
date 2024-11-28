@@ -2,11 +2,11 @@ import OneStopService from '@/components/OneStopService/OnestopserviceClient'
 
 export const metadata = {
   title: '그림지기 | 웹툰 작가를 위한 원스톱 법률 지원 서비스',
-  description: '웹툰 작가를 위한 저작권 침해 대응, 법률 상담, 계약서 검토까지 한번에 해결하세요. 24시간 AI 상담으로 빠른 답변을 받아보세요.',
-  keywords: '웹툰 법률, 저작권 침해, 웹툰 작가 지원, 계약서 검토, 법률 상담, 그림지기, AI 상담',
+  description: '웹툰 작가님들의 권리 보호를 위한 전문 법률 정보 플랫폼입니다. 저작권 침해 대응부터 계약서 검토까지, 신뢰할 수 있는 법률 전문기관을 연결해드립니다.',
+  keywords: '웹툰 법률, 저작권 침해, 웹툰 작가 지원, 계약서 검토, 법률 상담, 그림지기, 법률 정보',
   openGraph: {
     title: '그림지기 | 웹툰 작가를 위한 원스톱 법률 지원 서비스',
-    description: '웹툰 작가를 위한 저작권 침해 대응, 법률 상담, 계약서 검토까지 한번에 해결하세요.',
+    description: '웹툰 작가님들의 권리 보호를 위한 전문 법률 정보 플랫폼입니다. 저작권 침해 대응부터 계약서 검토까지, 신뢰할 수 있는 법률 전문기관을 연결해드립니다.',
     type: 'website',
     images: [
       {
