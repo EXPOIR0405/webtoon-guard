@@ -61,7 +61,7 @@ const legalOrganizations = {
           "저작권 분쟁",
           "계약 및 저작권 법률상담"
         ],
-        website: "https://www.kawfartist.kr/hkor/userMain/hkorMain.do?sso=ok"
+        website: "http://www.kawf.kr/"
       },
       {
         id: 3,
