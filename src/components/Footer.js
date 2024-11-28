@@ -51,17 +51,17 @@ export default function Footer() {
           </p>
           <div className="flex flex-col items-center mt-4 space-y-2">
             <p className="text-sm text-gray-500">
-              본 사이트는 웹툰 저작권 보호를 위해 시작된 비영리 프로젝트입니다.
+              본 사이트는 웹툰 저작권 보호를 위해 시작된 비영리 사이트입니다.
             </p>
             <div className="flex items-center space-x-2 text-sm text-gray-500">
-              <span>경기도 갭이어 프로젝트 플러스+의 일환으로 제작되었습니다.</span>
+              <span>경기도 갭이어 프로젝트 플러스+의 지원을 받아 제작되었습니다.</span>
               <span className="text-blue-500">|</span>
               <span className="group relative inline-block">
                 <span className="cursor-pointer text-blue-500 hover:text-blue-600">
                   Special Thanks to. 김동연 경기도지사님 🙏
                 </span>
                 <span className="invisible group-hover:visible absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 text-xs text-white bg-gray-800 rounded-lg whitespace-nowrap">
-                  덕분에 좋은 프로젝트 만들었습니다! 😊
+                  덕분에 좋은 기회를 주셔서 감사합니다! 😊
                 </span>
               </span>
             </div>
