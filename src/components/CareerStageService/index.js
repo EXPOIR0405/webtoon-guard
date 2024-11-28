@@ -45,7 +45,7 @@ const CareerStageService = () => {
           title: '예술인패스',
           description: '예술인의 문화향유 기회 확대와 자긍심 고취를 위한 예술인패스 복지제도입니다.',
           date: '상시 (신청 후 1~2주 이내 발급)',
-          link: 'https://sesac.seoul.kr/course/active/detail.do?courseActiveSeq=2829'
+          link: 'http://www.kawf.kr/social/sub10.do'
         } ,
         
       ]
@@ -59,7 +59,7 @@ const CareerStageService = () => {
           title: '예술인패스',
           description: '예술인의 문화향유 기회 확대와 자긍심 고취를 위한 예술인패스 복지제도입니다.',
           date: '상시 (신청 후 1~2주 이내 발급)',
-          link: 'https://sesac.seoul.kr/course/active/detail.do?courseActiveSeq=2829'
+          link: 'http://www.kawf.kr/social/sub10.do'
         } ,
       ]
     },
