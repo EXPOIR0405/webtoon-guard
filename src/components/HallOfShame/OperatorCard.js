@@ -20,10 +20,12 @@ export default function OperatorCard({ operator }) {
       {operator.image && (
         <div className="my-6">
           <div className="relative rounded-lg overflow-hidden border border-gray-200">
-            <img
+            <Image
               src={operator.image}
               alt="검거 현장"
               className="w-full object-cover"
+              width={200}
+              height={200}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
               📸 검거 현장 포착! 법정에서 반성하는 척 하더니...

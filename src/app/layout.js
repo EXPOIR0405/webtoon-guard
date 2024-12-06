@@ -5,6 +5,7 @@ import "./globals.css";
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Script from 'next/script'
+import Image from 'next/image';
 
 const MainPopup = ({ onClose, onHideForDay }) => {
   return (
@@ -25,11 +26,13 @@ const MainPopup = ({ onClose, onHideForDay }) => {
             onClose();
           }}
         >
-          <img 
+          <Image 
             src="/politicians/notice.png" 
             alt="긴급 공지사항" 
             className="w-full h-auto rounded-lg object-contain"
             style={{ maxHeight: '70vh' }}
+            width={500}
+            height={300}
           />
         </a>
 
