@@ -7,7 +7,7 @@ import ActionGuide from '@/components/ActionGuide';
 import QuotesCarousel from '@/components/QuotesCarousel';
 import NewsSection from '@/components/NewsSection';
 import ActionSection from '@/components/ActionSection';
-
+// import PoliticianQuotes from '@/components/PoliticianQuotes';
 
 const CountdownTimer = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -146,6 +146,7 @@ export default function ImpeachmentPage() {
       <ReasonsSection />
       <ActionGuide />
       <QuotesCarousel />
+      {/* <PoliticianQuotes /> */}
       <div id="protests">
         <NewsSection />
       </div>
