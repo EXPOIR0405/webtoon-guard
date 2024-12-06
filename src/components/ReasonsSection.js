@@ -36,11 +36,11 @@ const ReasonsSection = () => {
         <div className="mt-12 bg-gray-800 rounded-full h-6 overflow-hidden">
           <div 
             className="bg-red-600 h-full rounded-full transition-all duration-1000"
-            style={{ width: '96%' }}
+            style={{ width: '96.5%' }}
           ></div>
         </div>
-        <div className="text-center text-gray-400 mt-4">
-          목표 달성률 96%
+        <div className="text-center text-white mt-4">
+          목표 달성률 96.5%
         </div>
 
         <div className="text-center mt-16">
@@ -71,7 +71,7 @@ const ReasonsSection = () => {
                   </tr>
                   <tr className="border-b border-gray-700">
                     <td className="py-4 text-red-400">국민의힘</td>
-                    <td className="py-4 text-white">0</td>
+                    <td className="py-4 text-white">1</td>
                     <td className="py-4 text-gray-400">108</td>
                   </tr>
                   <tr className="border-b border-gray-700">
