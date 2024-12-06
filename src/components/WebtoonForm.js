@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import Image from 'next/image';
 
 export default function WebtoonForm() {
   const [victimName, setVictimName] = useState('');
@@ -218,10 +219,12 @@ export default function WebtoonForm() {
             <div style="padding: 40px; font-family: 'NanumSquare', sans-serif;">
               <h2 style="font-size: 32px; margin-bottom: 30px; color: #000000; font-weight: bold; text-align: center;">증 ${i + 1}</h2>
               <div style="max-height: 500px; overflow: hidden; margin-bottom: 30px; text-align: center;">
-                <img 
+                <Image 
                   src="${URL.createObjectURL(evidences[i])}" 
-                  style="max-width: 100%; max-height: 500px; object-fit: contain;"
-                >
+                  alt="증거자료 ${i + 1}"
+                  width={500}
+                  height={300}
+                />
               </div>
               <div style="background-color: #f9fafb; padding: 20px; border-radius: 4px;">
                 <p style="font-weight: bold; margin-bottom: 15px; color: #000000; font-size: 24px;">상세 설명</p>
@@ -477,10 +480,12 @@ export default function WebtoonForm() {
           <div className="space-y-2">
             <p className="text-black font-medium">{file.name}</p>
             {file.type.startsWith('image/') && (
-              <img
+              <Image
                 src={URL.createObjectURL(file)}
                 alt={`증거자료 ${index + 1}`}
                 className="max-w-full h-auto rounded-md"
+                width={500}
+                height={300}
               />
             )}
           </div>

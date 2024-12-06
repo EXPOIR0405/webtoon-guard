@@ -127,7 +127,7 @@ const QuotesCarousel = () => {
                 </div>
                 <div>
                   <blockquote className="text-gray-300 text-base italic mb-4">
-                    "{proQuotes[proIndex].quote}"
+                    &ldquo;{proQuotes[proIndex].quote}&rdquo;
                   </blockquote>
                   <div className="text-blue-600 font-bold">{proQuotes[proIndex].name}</div>
                   <div className="text-gray-400 text-sm">{proQuotes[proIndex].position}</div>
@@ -159,7 +159,7 @@ const QuotesCarousel = () => {
                 </div>
                 <div>
                   <blockquote className="text-gray-300 text-base italic mb-4">
-                    "{neutralQuotes[neutralIndex].quote}"
+                    &ldquo;{neutralQuotes[neutralIndex].quote}&rdquo;
                   </blockquote>
                   <div className="text-yellow-600 font-bold">{neutralQuotes[neutralIndex].name}</div>
                   <div className="text-gray-400 text-sm">{neutralQuotes[neutralIndex].position}</div>
@@ -194,7 +194,7 @@ const QuotesCarousel = () => {
                 </div>
                 <div>
                   <blockquote className="text-gray-300 text-lg italic mb-4">
-                    "{conQuotes[conIndex].quote}"
+                    &ldquo;{conQuotes[conIndex].quote}&rdquo;
                   </blockquote>
                   <div className="text-red-600 font-bold">{conQuotes[conIndex].name}</div>
                   <div className="text-gray-400 text-sm">{conQuotes[conIndex].position}</div>
