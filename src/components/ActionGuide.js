@@ -45,7 +45,7 @@ const ActionGuide = () => {
         <div className="w-full bg-black py-20">
           <div className="max-w-6xl mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-black text-center mb-12">
-              <span className="border-b-4 border-red-600 pb-2 hover:border-red-400 transition-colors">
+              <span className="border-b-4 border-red-600 pb-2 text-white hover:border-red-400 transition-colors">
                 시민은 무엇을 할 수 있을까요?
               </span>
             </h2>
