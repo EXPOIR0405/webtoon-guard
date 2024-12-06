@@ -1,3 +1,5 @@
+//주요 뉴스
+
 'use client';
 
 import { useState, useEffect } from 'react';
