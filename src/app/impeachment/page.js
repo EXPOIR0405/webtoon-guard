@@ -57,7 +57,7 @@ const CountdownTimer = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [timeLeft]);
 
   return (
     <div className="w-full min-h-screen bg-black pt-20">

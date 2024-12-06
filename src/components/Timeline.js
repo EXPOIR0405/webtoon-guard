@@ -154,7 +154,7 @@ const Timeline = () => {
             <div className="relative mt-16 mb-8">
               <div className="max-w-3xl mx-auto bg-zinc-900 p-8 rounded-xl border-2 border-red-600">
                 <blockquote className="text-xl md:text-2xl text-white text-center font-bold italic">
-                  "헌법을 수호하지 못하고, 국가 질서를 흔든 대통령을 더는 감당할 자신이 없다"
+                &ldquo;헌법을 수호하지 못하고, 국가 질서를 흔든 대통령을 더는 감당할 자신이 없다&ldquo;
                 </blockquote>
               </div>
             </div>
