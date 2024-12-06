@@ -1,4 +1,4 @@
-//정치인 발언 인용 캐러셀
+//정치인 발언 인용
 
 'use client';
 import { useState } from 'react';
