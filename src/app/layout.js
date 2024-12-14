@@ -7,47 +7,47 @@ import Footer from '@/components/Footer';
 import Script from 'next/script'
 import Image from 'next/image';
 
-const MainPopup = ({ onClose, onHideForDay }) => {
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-      <div className="bg-zinc-900 rounded-xl p-4 relative border border-red-600 max-w-md w-full">
-        <button 
-          onClick={onClose}
-          className="absolute -top-2 -right-2 w-8 h-8 bg-red-600 rounded-full text-white flex items-center justify-center hover:bg-red-700 transition-colors z-10"
-        >
-          <span className="text-xl">×</span>
-        </button>
+// const MainPopup = ({ onClose, onHideForDay }) => {
+//   return (
+//     <div className="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
+//       <div className="bg-zinc-900 rounded-xl p-4 relative border border-red-600 max-w-md w-full">
+//         <button 
+//           onClick={onClose}
+//           className="absolute -top-2 -right-2 w-8 h-8 bg-red-600 rounded-full text-white flex items-center justify-center hover:bg-red-700 transition-colors z-10"
+//         >
+//           <span className="text-xl">×</span>
+//         </button>
         
-        <a 
-          href="/impeachment" 
-          className="block cursor-pointer"
-          onClick={() => {
-            localStorage.setItem('hasSeenPopup', 'true');
-            onClose();
-          }}
-        >
-          <Image 
-            src="/politicians/notice.png" 
-            alt="긴급 공지사항" 
-            className="w-full h-auto rounded-lg object-contain"
-            style={{ maxHeight: '70vh' }}
-            width={500}
-            height={300}
-          />
-        </a>
+//         <a 
+//           href="/impeachment" 
+//           className="block cursor-pointer"
+//           onClick={() => {
+//             localStorage.setItem('hasSeenPopup', 'true');
+//             onClose();
+//           }}
+//         >
+//           <Image 
+//             src="/politicians/notice.png" 
+//             alt="긴급 공지사항" 
+//             className="w-full h-auto rounded-lg object-contain"
+//             style={{ maxHeight: '70vh' }}
+//             width={500}
+//             height={300}
+//           />
+//         </a>
 
-        <div className="mt-4 flex justify-end">
-          <button 
-            onClick={onHideForDay}
-            className="text-gray-400 hover:text-white transition-colors text-sm"
-          >
-            오늘 하루 보지 않기
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
+//         <div className="mt-4 flex justify-end">
+//           <button 
+//             onClick={onHideForDay}
+//             className="text-gray-400 hover:text-white transition-colors text-sm"
+//           >
+//             오늘 하루 보지 않기
+//           </button>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default function RootLayout({ children }) {
   const [isChatOpen, setIsChatOpen] = useState(false);
