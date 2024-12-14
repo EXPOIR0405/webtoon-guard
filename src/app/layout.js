@@ -49,31 +49,31 @@ import Image from 'next/image';
 //   );
 // };
 
-export default function RootLayout({ children }) {
-  const [isChatOpen, setIsChatOpen] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
+// export default function RootLayout({ children }) {
+//   const [isChatOpen, setIsChatOpen] = useState(false);
+//   const [showPopup, setShowPopup] = useState(false);
 
-  useEffect(() => {
-    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
-    const hideUntil = localStorage.getItem('hidePopupUntil');
-    const now = new Date().getTime();
+//   useEffect(() => {
+//     const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+//     const hideUntil = localStorage.getItem('hidePopupUntil');
+//     const now = new Date().getTime();
 
-    if (!hasSeenPopup && (!hideUntil || now > parseInt(hideUntil))) {
-      setShowPopup(true);
-    }
-  }, []);
+//     if (!hasSeenPopup && (!hideUntil || now > parseInt(hideUntil))) {
+//       setShowPopup(true);
+//     }
+//   }, []);
 
-  const handleClosePopup = () => {
-    localStorage.setItem('hasSeenPopup', 'true');
-    setShowPopup(false);
-  };
+//   const handleClosePopup = () => {
+//     localStorage.setItem('hasSeenPopup', 'true');
+//     setShowPopup(false);
+//   };
 
-  const handleHideForDay = () => {
-    const tomorrow = new Date();
-    tomorrow.setHours(24, 0, 0, 0);
-    localStorage.setItem('hidePopupUntil', tomorrow.getTime().toString());
-    setShowPopup(false);
-  };
+//   const handleHideForDay = () => {
+//     const tomorrow = new Date();
+//     tomorrow.setHours(24, 0, 0, 0);
+//     localStorage.setItem('hidePopupUntil', tomorrow.getTime().toString());
+//     setShowPopup(false);
+//   };
 
   return (
     <html lang="ko">
