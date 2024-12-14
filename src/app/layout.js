@@ -96,12 +96,12 @@ import Image from 'next/image';
         </Script>
       </head>
       <body className="bg-white">
-        {showPopup && (
+        {/* {showPopup && (
           <MainPopup 
             onClose={handleClosePopup} 
             onHideForDay={handleHideForDay}
           />
-        )}
+        )} */}
         <Navigation />
         <main className="min-h-screen">
           {children}
